@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TONAR_PCs_DBModelContainer" CdmEntityContainer="TONAR_PCs_DBEntities">
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Buildings">
+        <MappingFragment StoreEntitySet="Buildings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingsAndDepartments">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.BuildingsAndDepartments">
+        <MappingFragment StoreEntitySet="BuildingsAndDepartments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idBuilding" ColumnName="idBuilding" />
+          <ScalarProperty Name="idDepartment" ColumnName="idDepartment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Computers">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Computers">
+        <MappingFragment StoreEntitySet="Computers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idMotherBoard" ColumnName="idMotherBoard" />
+          <ScalarProperty Name="idProcessor" ColumnName="idProcessor" />
+          <ScalarProperty Name="idRam" ColumnName="idRam" />
+          <ScalarProperty Name="RamPlatesCount" ColumnName="RamPlatesCount" />
+          <ScalarProperty Name="idVideoAdapter" ColumnName="idVideoAdapter" />
+          <ScalarProperty Name="idDriveSet" ColumnName="idDriveSet" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drives">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Drives">
+        <MappingFragment StoreEntitySet="Drives">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="idManufacturer" ColumnName="idManufacturer" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriveSets">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.DriveSets">
+        <MappingFragment StoreEntitySet="DriveSets">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idHDD" ColumnName="idHDD" />
+          <ScalarProperty Name="idSSD" ColumnName="idSSD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DrivesTypes">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.DrivesTypes">
+        <MappingFragment StoreEntitySet="DrivesTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HardwareManufacturers">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.HardwareManufacturers">
+        <MappingFragment StoreEntitySet="HardwareManufacturers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Motherboards">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Motherboards">
+        <MappingFragment StoreEntitySet="Motherboards">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idHardwareManufacturer" ColumnName="idHardwareManufacturer" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="idSBridge" ColumnName="idSBridge" />
+          <ScalarProperty Name="idSocket" ColumnName="idSocket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MotherboardsSBridges">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.MotherboardsSBridges">
+        <MappingFragment StoreEntitySet="MotherboardsSBridges">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idProcessorsVendors" ColumnName="idProcessorsVendors" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Processors">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Processors">
+        <MappingFragment StoreEntitySet="Processors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idModel" ColumnName="idModel" />
+          <ScalarProperty Name="idVendor" ColumnName="idVendor" />
+          <ScalarProperty Name="idMark" ColumnName="idMark" />
+          <ScalarProperty Name="idSocket" ColumnName="idSocket" />
+          <ScalarProperty Name="idIndex" ColumnName="idIndex" />
+          <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
+          <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
+          <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
+          <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessorsIndexes">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsIndexes">
+        <MappingFragment StoreEntitySet="ProcessorsIndexes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessorsMarks">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsMarks">
+        <MappingFragment StoreEntitySet="ProcessorsMarks">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessorsModels">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsModels">
+        <MappingFragment StoreEntitySet="ProcessorsModels">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessorsVendors">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsVendors">
+        <MappingFragment StoreEntitySet="ProcessorsVendors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAM">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.RAM">
+        <MappingFragment StoreEntitySet="RAM">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idHardwareManufacturer" ColumnName="idHardwareManufacturer" />
+          <ScalarProperty Name="idVolume" ColumnName="idVolume" />
+          <ScalarProperty Name="TickSpeed" ColumnName="TickSpeed" />
+          <ScalarProperty Name="idType" ColumnName="idType" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAMTypes">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.RAMTypes">
+        <MappingFragment StoreEntitySet="RAMTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAMVolumes">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.RAMVolumes">
+        <MappingFragment StoreEntitySet="RAMVolumes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Volumes" ColumnName="Volumes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sockets">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Sockets">
+        <MappingFragment StoreEntitySet="Sockets">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoAdapts">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.VideoAdapts">
+        <MappingFragment StoreEntitySet="VideoAdapts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idManufacturer" ColumnName="idManufacturer" />
+          <ScalarProperty Name="idProcessorsVendors" ColumnName="idProcessorsVendors" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище TONAR_PCs_DBModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TONAR_PCs_DBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище TONAR_PCs_DBModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TONAR_PCs_DBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище TONAR_PCs_DBModel.sp_upgraddiagrams" />
+    <EntitySetMapping Name="DepartmentsAndComputers">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.DepartmentsAndComputers">
+        <MappingFragment StoreEntitySet="DepartmentsAndComputers">
+          <ScalarProperty Name="idDepartment" ColumnName="idDepartment" />
+          <ScalarProperty Name="idComputer" ColumnName="idComputer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

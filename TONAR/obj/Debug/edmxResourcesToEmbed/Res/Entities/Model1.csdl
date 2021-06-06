@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TONAR_PCs_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Buildings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BuildingsAndDepartments" Relationship="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Buildings" FromRole="Buildings" ToRole="BuildingsAndDepartments" />
+  </EntityType>
+  <EntityType Name="BuildingsAndDepartments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idBuilding" Type="Int32" Nullable="false" />
+    <Property Name="idDepartment" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Buildings" Relationship="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Buildings" FromRole="BuildingsAndDepartments" ToRole="Buildings" />
+    <NavigationProperty Name="Departments" Relationship="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Departments" FromRole="BuildingsAndDepartments" ToRole="Departments" />
+  </EntityType>
+  <EntityType Name="Computers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMotherBoard" Type="Int32" Nullable="false" />
+    <Property Name="idProcessor" Type="Int32" Nullable="false" />
+    <Property Name="idRam" Type="Int32" Nullable="false" />
+    <Property Name="RamPlatesCount" Type="Int32" Nullable="false" />
+    <Property Name="idVideoAdapter" Type="Int32" />
+    <Property Name="idDriveSet" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DriveSets" Relationship="TONAR_PCs_DBModel.FK_Computers_DriveSets" FromRole="Computers" ToRole="DriveSets" />
+    <NavigationProperty Name="Motherboards" Relationship="TONAR_PCs_DBModel.FK_Computers_Motherboards" FromRole="Computers" ToRole="Motherboards" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Computers_Processors" FromRole="Computers" ToRole="Processors" />
+    <NavigationProperty Name="RAM" Relationship="TONAR_PCs_DBModel.FK_Computers_RAM" FromRole="Computers" ToRole="RAM" />
+    <NavigationProperty Name="VideoAdapts" Relationship="TONAR_PCs_DBModel.FK_Computers_VideoAdapts" FromRole="Computers" ToRole="VideoAdapts" />
+    <NavigationProperty Name="DepartmentsAndComputers" Relationship="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Computers" FromRole="Computers" ToRole="DepartmentsAndComputers" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BuildingsAndDepartments" Relationship="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Departments" FromRole="Departments" ToRole="BuildingsAndDepartments" />
+    <NavigationProperty Name="DepartmentsAndComputers" Relationship="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Departments" FromRole="Departments" ToRole="DepartmentsAndComputers" />
+  </EntityType>
+  <EntityType Name="Drives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idType" Type="Int32" Nullable="false" />
+    <Property Name="idManufacturer" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DrivesTypes" Relationship="TONAR_PCs_DBModel.FK_Drives_DrivesTypes" FromRole="Drives" ToRole="DrivesTypes" />
+    <NavigationProperty Name="HardwareManufacturers" Relationship="TONAR_PCs_DBModel.FK_Drives_HardwareManufacturers" FromRole="Drives" ToRole="HardwareManufacturers" />
+    <NavigationProperty Name="DriveSets" Relationship="TONAR_PCs_DBModel.FK_DriveSets_Drives" FromRole="Drives" ToRole="DriveSets" />
+    <NavigationProperty Name="DriveSets1" Relationship="TONAR_PCs_DBModel.FK_DriveSets_Drives1" FromRole="Drives" ToRole="DriveSets" />
+  </EntityType>
+  <EntityType Name="DriveSets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idHDD" Type="Int32" Nullable="false" />
+    <Property Name="idSSD" Type="Int32" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_Computers_DriveSets" FromRole="DriveSets" ToRole="Computers" />
+    <NavigationProperty Name="Drives" Relationship="TONAR_PCs_DBModel.FK_DriveSets_Drives" FromRole="DriveSets" ToRole="Drives" />
+    <NavigationProperty Name="Drives1" Relationship="TONAR_PCs_DBModel.FK_DriveSets_Drives1" FromRole="DriveSets" ToRole="Drives" />
+  </EntityType>
+  <EntityType Name="DrivesTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Drives" Relationship="TONAR_PCs_DBModel.FK_Drives_DrivesTypes" FromRole="DrivesTypes" ToRole="Drives" />
+  </EntityType>
+  <EntityType Name="HardwareManufacturers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Drives" Relationship="TONAR_PCs_DBModel.FK_Drives_HardwareManufacturers" FromRole="HardwareManufacturers" ToRole="Drives" />
+    <NavigationProperty Name="Motherboards" Relationship="TONAR_PCs_DBModel.FK_Motherboards_HardwareManufacturers" FromRole="HardwareManufacturers" ToRole="Motherboards" />
+    <NavigationProperty Name="RAM" Relationship="TONAR_PCs_DBModel.FK_RAM_HardwareManufacturers" FromRole="HardwareManufacturers" ToRole="RAM" />
+    <NavigationProperty Name="VideoAdapts" Relationship="TONAR_PCs_DBModel.FK_VideoAdapts_HardwareManufacturers" FromRole="HardwareManufacturers" ToRole="VideoAdapts" />
+  </EntityType>
+  <EntityType Name="Motherboards">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idHardwareManufacturer" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idSBridge" Type="Int32" Nullable="false" />
+    <Property Name="idSocket" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_Computers_Motherboards" FromRole="Motherboards" ToRole="Computers" />
+    <NavigationProperty Name="HardwareManufacturers" Relationship="TONAR_PCs_DBModel.FK_Motherboards_HardwareManufacturers" FromRole="Motherboards" ToRole="HardwareManufacturers" />
+    <NavigationProperty Name="MotherboardsSBridges" Relationship="TONAR_PCs_DBModel.FK_Motherboards_MotherboardsSBridges" FromRole="Motherboards" ToRole="MotherboardsSBridges" />
+    <NavigationProperty Name="Sockets" Relationship="TONAR_PCs_DBModel.FK_Motherboards_Sockets" FromRole="Motherboards" ToRole="Sockets" />
+  </EntityType>
+  <EntityType Name="MotherboardsSBridges">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProcessorsVendors" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Motherboards" Relationship="TONAR_PCs_DBModel.FK_Motherboards_MotherboardsSBridges" FromRole="MotherboardsSBridges" ToRole="Motherboards" />
+    <NavigationProperty Name="ProcessorsVendors" Relationship="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors" FromRole="MotherboardsSBridges" ToRole="ProcessorsVendors" />
+  </EntityType>
+  <EntityType Name="Processors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idModel" Type="Int32" Nullable="false" />
+    <Property Name="idVendor" Type="Int32" Nullable="false" />
+    <Property Name="idMark" Type="Int32" Nullable="false" />
+    <Property Name="idSocket" Type="Int32" Nullable="false" />
+    <Property Name="idIndex" Type="Int32" />
+    <Property Name="CacheL1" Type="Int32" Nullable="false" />
+    <Property Name="CacheL2" Type="Int32" Nullable="false" />
+    <Property Name="CacheL3" Type="Int32" />
+    <Property Name="Tickspeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_Computers_Processors" FromRole="Processors" ToRole="Computers" />
+    <NavigationProperty Name="ProcessorsIndexes" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsIndexes" FromRole="Processors" ToRole="ProcessorsIndexes" />
+    <NavigationProperty Name="ProcessorsMarks" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsMarks" FromRole="Processors" ToRole="ProcessorsMarks" />
+    <NavigationProperty Name="ProcessorsModels" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsModels" FromRole="Processors" ToRole="ProcessorsModels" />
+    <NavigationProperty Name="ProcessorsVendors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors" FromRole="Processors" ToRole="ProcessorsVendors" />
+    <NavigationProperty Name="Sockets" Relationship="TONAR_PCs_DBModel.FK_Processors_Sockets" FromRole="Processors" ToRole="Sockets" />
+  </EntityType>
+  <EntityType Name="ProcessorsIndexes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsIndexes" FromRole="ProcessorsIndexes" ToRole="Processors" />
+  </EntityType>
+  <EntityType Name="ProcessorsMarks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mark" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsMarks" FromRole="ProcessorsMarks" ToRole="Processors" />
+  </EntityType>
+  <EntityType Name="ProcessorsModels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsModels" FromRole="ProcessorsModels" ToRole="Processors" />
+  </EntityType>
+  <EntityType Name="ProcessorsVendors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MotherboardsSBridges" Relationship="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="MotherboardsSBridges" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="Processors" />
+    <NavigationProperty Name="VideoAdapts" Relationship="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="VideoAdapts" />
+  </EntityType>
+  <EntityType Name="RAM">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idHardwareManufacturer" Type="Int32" Nullable="false" />
+    <Property Name="idVolume" Type="Int32" Nullable="false" />
+    <Property Name="TickSpeed" Type="Int32" Nullable="false" />
+    <Property Name="idType" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="Int32" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_Computers_RAM" FromRole="RAM" ToRole="Computers" />
+    <NavigationProperty Name="HardwareManufacturers" Relationship="TONAR_PCs_DBModel.FK_RAM_HardwareManufacturers" FromRole="RAM" ToRole="HardwareManufacturers" />
+    <NavigationProperty Name="RAMTypes" Relationship="TONAR_PCs_DBModel.FK_RAM_RAMTypes" FromRole="RAM" ToRole="RAMTypes" />
+    <NavigationProperty Name="RAMVolumes" Relationship="TONAR_PCs_DBModel.FK_RAM_RAMVolumes" FromRole="RAM" ToRole="RAMVolumes" />
+  </EntityType>
+  <EntityType Name="RAMTypes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RAM" Relationship="TONAR_PCs_DBModel.FK_RAM_RAMTypes" FromRole="RAMTypes" ToRole="RAM" />
+  </EntityType>
+  <EntityType Name="RAMVolumes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Volumes" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RAM" Relationship="TONAR_PCs_DBModel.FK_RAM_RAMVolumes" FromRole="RAMVolumes" ToRole="RAM" />
+  </EntityType>
+  <EntityType Name="Sockets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Socket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Motherboards" Relationship="TONAR_PCs_DBModel.FK_Motherboards_Sockets" FromRole="Sockets" ToRole="Motherboards" />
+    <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_Sockets" FromRole="Sockets" ToRole="Processors" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="VideoAdapts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idManufacturer" Type="Int32" Nullable="false" />
+    <Property Name="idProcessorsVendors" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_Computers_VideoAdapts" FromRole="VideoAdapts" ToRole="Computers" />
+    <NavigationProperty Name="HardwareManufacturers" Relationship="TONAR_PCs_DBModel.FK_VideoAdapts_HardwareManufacturers" FromRole="VideoAdapts" ToRole="HardwareManufacturers" />
+    <NavigationProperty Name="ProcessorsVendors" Relationship="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors" FromRole="VideoAdapts" ToRole="ProcessorsVendors" />
+  </EntityType>
+  <EntityContainer Name="TONAR_PCs_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Buildings" EntityType="Self.Buildings" />
+    <EntitySet Name="BuildingsAndDepartments" EntityType="Self.BuildingsAndDepartments" />
+    <EntitySet Name="Computers" EntityType="Self.Computers" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" />
+    <EntitySet Name="Drives" EntityType="Self.Drives" />
+    <EntitySet Name="DriveSets" EntityType="Self.DriveSets" />
+    <EntitySet Name="DrivesTypes" EntityType="Self.DrivesTypes" />
+    <EntitySet Name="HardwareManufacturers" EntityType="Self.HardwareManufacturers" />
+    <EntitySet Name="Motherboards" EntityType="Self.Motherboards" />
+    <EntitySet Name="MotherboardsSBridges" EntityType="Self.MotherboardsSBridges" />
+    <EntitySet Name="Processors" EntityType="Self.Processors" />
+    <EntitySet Name="ProcessorsIndexes" EntityType="Self.ProcessorsIndexes" />
+    <EntitySet Name="ProcessorsMarks" EntityType="Self.ProcessorsMarks" />
+    <EntitySet Name="ProcessorsModels" EntityType="Self.ProcessorsModels" />
+    <EntitySet Name="ProcessorsVendors" EntityType="Self.ProcessorsVendors" />
+    <EntitySet Name="RAM" EntityType="Self.RAM" />
+    <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" />
+    <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" />
+    <EntitySet Name="Sockets" EntityType="Self.Sockets" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TONAR_PCs_DBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TONAR_PCs_DBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="DepartmentsAndComputers" EntityType="TONAR_PCs_DBModel.DepartmentsAndComputers" />
+    <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Buildings">
+      <End Role="Buildings" EntitySet="Buildings" />
+      <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BuildingsAndDepartments_Departments" Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Computers_DriveSets" Association="TONAR_PCs_DBModel.FK_Computers_DriveSets">
+      <End Role="DriveSets" EntitySet="DriveSets" />
+      <End Role="Computers" EntitySet="Computers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Computers_Motherboards" Association="TONAR_PCs_DBModel.FK_Computers_Motherboards">
+      <End Role="Motherboards" EntitySet="Motherboards" />
+      <End Role="Computers" EntitySet="Computers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Computers_Processors" Association="TONAR_PCs_DBModel.FK_Computers_Processors">
+      <End Role="Processors" EntitySet="Processors" />
+      <End Role="Computers" EntitySet="Computers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Computers_RAM" Association="TONAR_PCs_DBModel.FK_Computers_RAM">
+      <End Role="RAM" EntitySet="RAM" />
+      <End Role="Computers" EntitySet="Computers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Computers_VideoAdapts" Association="TONAR_PCs_DBModel.FK_Computers_VideoAdapts">
+      <End Role="VideoAdapts" EntitySet="VideoAdapts" />
+      <End Role="Computers" EntitySet="Computers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentsAndComputers_Computers" Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Computers">
+      <End Role="Computers" EntitySet="Computers" />
+      <End Role="DepartmentsAndComputers" EntitySet="DepartmentsAndComputers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentsAndComputers_Departments" Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="DepartmentsAndComputers" EntitySet="DepartmentsAndComputers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Drives_DrivesTypes" Association="TONAR_PCs_DBModel.FK_Drives_DrivesTypes">
+      <End Role="DrivesTypes" EntitySet="DrivesTypes" />
+      <End Role="Drives" EntitySet="Drives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Drives_HardwareManufacturers" Association="TONAR_PCs_DBModel.FK_Drives_HardwareManufacturers">
+      <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />
+      <End Role="Drives" EntitySet="Drives" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriveSets_Drives" Association="TONAR_PCs_DBModel.FK_DriveSets_Drives">
+      <End Role="Drives" EntitySet="Drives" />
+      <End Role="DriveSets" EntitySet="DriveSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriveSets_Drives1" Association="TONAR_PCs_DBModel.FK_DriveSets_Drives1">
+      <End Role="Drives" EntitySet="Drives" />
+      <End Role="DriveSets" EntitySet="DriveSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Motherboards_HardwareManufacturers" Association="TONAR_PCs_DBModel.FK_Motherboards_HardwareManufacturers">
+      <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />
+      <End Role="Motherboards" EntitySet="Motherboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAM_HardwareManufacturers" Association="TONAR_PCs_DBModel.FK_RAM_HardwareManufacturers">
+      <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />
+      <End Role="RAM" EntitySet="RAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoAdapts_HardwareManufacturers" Association="TONAR_PCs_DBModel.FK_VideoAdapts_HardwareManufacturers">
+      <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />
+      <End Role="VideoAdapts" EntitySet="VideoAdapts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Motherboards_MotherboardsSBridges" Association="TONAR_PCs_DBModel.FK_Motherboards_MotherboardsSBridges">
+      <End Role="MotherboardsSBridges" EntitySet="MotherboardsSBridges" />
+      <End Role="Motherboards" EntitySet="Motherboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Motherboards_Sockets" Association="TONAR_PCs_DBModel.FK_Motherboards_Sockets">
+      <End Role="Sockets" EntitySet="Sockets" />
+      <End Role="Motherboards" EntitySet="Motherboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MotherboardsSBridges_ProcessorsVendors" Association="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="MotherboardsSBridges" EntitySet="MotherboardsSBridges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Processors_ProcessorsIndexes" Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsIndexes">
+      <End Role="ProcessorsIndexes" EntitySet="ProcessorsIndexes" />
+      <End Role="Processors" EntitySet="Processors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Processors_ProcessorsMarks" Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsMarks">
+      <End Role="ProcessorsMarks" EntitySet="ProcessorsMarks" />
+      <End Role="Processors" EntitySet="Processors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Processors_ProcessorsModels" Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsModels">
+      <End Role="ProcessorsModels" EntitySet="ProcessorsModels" />
+      <End Role="Processors" EntitySet="Processors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Processors_ProcessorsVendors" Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="Processors" EntitySet="Processors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Processors_Sockets" Association="TONAR_PCs_DBModel.FK_Processors_Sockets">
+      <End Role="Sockets" EntitySet="Sockets" />
+      <End Role="Processors" EntitySet="Processors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VideoAdapts_ProcessorsVendors" Association="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="VideoAdapts" EntitySet="VideoAdapts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAM_RAMTypes" Association="TONAR_PCs_DBModel.FK_RAM_RAMTypes">
+      <End Role="RAMTypes" EntitySet="RAMTypes" />
+      <End Role="RAM" EntitySet="RAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAM_RAMVolumes" Association="TONAR_PCs_DBModel.FK_RAM_RAMVolumes">
+      <End Role="RAMVolumes" EntitySet="RAMVolumes" />
+      <End Role="RAM" EntitySet="RAM" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="DepartmentsAndComputers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idComputer" Type="Int32" Nullable="false" />
+    <Property Name="idDepartment" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Computers" Relationship="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Computers" FromRole="DepartmentsAndComputers" ToRole="Computers" />
+    <NavigationProperty Name="Departments" Relationship="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Departments" FromRole="DepartmentsAndComputers" ToRole="Departments" />
+  </EntityType>
+  <Association Name="FK_BuildingsAndDepartments_Buildings">
+    <End Type="TONAR_PCs_DBModel.Buildings" Role="Buildings" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.BuildingsAndDepartments" Role="BuildingsAndDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BuildingsAndDepartments">
+        <PropertyRef Name="idBuilding" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BuildingsAndDepartments_Departments">
+    <End Type="TONAR_PCs_DBModel.Departments" Role="Departments" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.BuildingsAndDepartments" Role="BuildingsAndDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BuildingsAndDepartments">
+        <PropertyRef Name="idDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Computers_DriveSets">
+    <End Type="TONAR_PCs_DBModel.DriveSets" Role="DriveSets" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DriveSets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Computers">
+        <PropertyRef Name="idDriveSet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Computers_Motherboards">
+    <End Type="TONAR_PCs_DBModel.Motherboards" Role="Motherboards" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Motherboards">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Computers">
+        <PropertyRef Name="idMotherBoard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Computers_Processors">
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Processors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Computers">
+        <PropertyRef Name="idProcessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Computers_RAM">
+    <End Type="TONAR_PCs_DBModel.RAM" Role="RAM" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RAM">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Computers">
+        <PropertyRef Name="idRam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Computers_VideoAdapts">
+    <End Type="TONAR_PCs_DBModel.VideoAdapts" Role="VideoAdapts" Multiplicity="0..1" />
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoAdapts">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Computers">
+        <PropertyRef Name="idVideoAdapter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentsAndComputers_Computers">
+    <End Type="TONAR_PCs_DBModel.Computers" Role="Computers" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.DepartmentsAndComputers" Role="DepartmentsAndComputers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Computers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DepartmentsAndComputers">
+        <PropertyRef Name="idComputer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentsAndComputers_Departments">
+    <End Type="TONAR_PCs_DBModel.Departments" Role="Departments" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.DepartmentsAndComputers" Role="DepartmentsAndComputers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DepartmentsAndComputers">
+        <PropertyRef Name="idDepartment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Drives_DrivesTypes">
+    <End Type="TONAR_PCs_DBModel.DrivesTypes" Role="DrivesTypes" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Drives" Role="Drives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DrivesTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Drives">
+        <PropertyRef Name="idType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Drives_HardwareManufacturers">
+    <End Type="TONAR_PCs_DBModel.HardwareManufacturers" Role="HardwareManufacturers" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Drives" Role="Drives" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareManufacturers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Drives">
+        <PropertyRef Name="idManufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriveSets_Drives">
+    <End Type="TONAR_PCs_DBModel.Drives" Role="Drives" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.DriveSets" Role="DriveSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drives">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DriveSets">
+        <PropertyRef Name="idHDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriveSets_Drives1">
+    <End Type="TONAR_PCs_DBModel.Drives" Role="Drives" Multiplicity="0..1" />
+    <End Type="TONAR_PCs_DBModel.DriveSets" Role="DriveSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drives">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DriveSets">
+        <PropertyRef Name="idSSD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Motherboards_HardwareManufacturers">
+    <End Type="TONAR_PCs_DBModel.HardwareManufacturers" Role="HardwareManufacturers" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Motherboards" Role="Motherboards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareManufacturers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Motherboards">
+        <PropertyRef Name="idHardwareManufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAM_HardwareManufacturers">
+    <End Type="TONAR_PCs_DBModel.HardwareManufacturers" Role="HardwareManufacturers" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.RAM" Role="RAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareManufacturers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RAM">
+        <PropertyRef Name="idHardwareManufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoAdapts_HardwareManufacturers">
+    <End Type="TONAR_PCs_DBModel.HardwareManufacturers" Role="HardwareManufacturers" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.VideoAdapts" Role="VideoAdapts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareManufacturers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VideoAdapts">
+        <PropertyRef Name="idManufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Motherboards_MotherboardsSBridges">
+    <End Type="TONAR_PCs_DBModel.MotherboardsSBridges" Role="MotherboardsSBridges" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Motherboards" Role="Motherboards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MotherboardsSBridges">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Motherboards">
+        <PropertyRef Name="idSBridge" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Motherboards_Sockets">
+    <End Type="TONAR_PCs_DBModel.Sockets" Role="Sockets" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Motherboards" Role="Motherboards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sockets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Motherboards">
+        <PropertyRef Name="idSocket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MotherboardsSBridges_ProcessorsVendors">
+    <End Type="TONAR_PCs_DBModel.ProcessorsVendors" Role="ProcessorsVendors" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.MotherboardsSBridges" Role="MotherboardsSBridges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MotherboardsSBridges">
+        <PropertyRef Name="idProcessorsVendors" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Processors_ProcessorsIndexes">
+    <End Type="TONAR_PCs_DBModel.ProcessorsIndexes" Role="ProcessorsIndexes" Multiplicity="0..1" />
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsIndexes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Processors">
+        <PropertyRef Name="idIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Processors_ProcessorsMarks">
+    <End Type="TONAR_PCs_DBModel.ProcessorsMarks" Role="ProcessorsMarks" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsMarks">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Processors">
+        <PropertyRef Name="idMark" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Processors_ProcessorsModels">
+    <End Type="TONAR_PCs_DBModel.ProcessorsModels" Role="ProcessorsModels" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsModels">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Processors">
+        <PropertyRef Name="idModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Processors_ProcessorsVendors">
+    <End Type="TONAR_PCs_DBModel.ProcessorsVendors" Role="ProcessorsVendors" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Processors">
+        <PropertyRef Name="idVendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Processors_Sockets">
+    <End Type="TONAR_PCs_DBModel.Sockets" Role="Sockets" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.Processors" Role="Processors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sockets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Processors">
+        <PropertyRef Name="idSocket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VideoAdapts_ProcessorsVendors">
+    <End Type="TONAR_PCs_DBModel.ProcessorsVendors" Role="ProcessorsVendors" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.VideoAdapts" Role="VideoAdapts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="VideoAdapts">
+        <PropertyRef Name="idProcessorsVendors" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAM_RAMTypes">
+    <End Type="TONAR_PCs_DBModel.RAMTypes" Role="RAMTypes" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.RAM" Role="RAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RAMTypes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RAM">
+        <PropertyRef Name="idType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAM_RAMVolumes">
+    <End Type="TONAR_PCs_DBModel.RAMVolumes" Role="RAMVolumes" Multiplicity="1" />
+    <End Type="TONAR_PCs_DBModel.RAM" Role="RAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RAMVolumes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="RAM">
+        <PropertyRef Name="idVolume" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
