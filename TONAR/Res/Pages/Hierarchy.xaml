@@ -26,7 +26,31 @@
                                         <MenuItem Header="Добавить"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
-                            </TreeViewItem> 
+                            </TreeViewItem>
+                            <TreeViewItem Header="Модели">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить"></MenuItem>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Поколения и номера">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить"></MenuItem>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Маркировки">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить"></MenuItem>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Видеокарты">
+                            
                         </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>
