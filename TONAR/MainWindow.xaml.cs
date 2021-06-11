@@ -25,6 +25,7 @@ namespace TONAR
         {
             InitializeComponent();
             LeftFrame.Navigate(new Hierarchy());
+            Res.Code.StaticVisibility.f = RightFrame;
         }
     }
 }

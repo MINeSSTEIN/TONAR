@@ -140,6 +140,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="RAM">
           <Key>
@@ -852,6 +854,8 @@
           <NavigationProperty Name="MotherboardsSBridges" Relationship="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="MotherboardsSBridges" />
           <NavigationProperty Name="Processors" Relationship="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="Processors" />
           <NavigationProperty Name="VideoAdapts" Relationship="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="VideoAdapts" />
+          <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RAM">
           <Key>
@@ -1567,6 +1571,8 @@
           <EntitySetMapping Name="ProcessorsVendors">
             <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsVendors">
               <MappingFragment StoreEntitySet="ProcessorsVendors">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>

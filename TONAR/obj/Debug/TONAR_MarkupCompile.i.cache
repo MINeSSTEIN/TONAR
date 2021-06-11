@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\mines\source\repos\TONAR\TONAR\App.xaml
-2519110883
+5208708929
 2876172293
-342037993415
+391935679154
 18-895798998
-MainWindow.xaml;Res\Pages\Hierarchy.xaml;
+MainWindow.xaml;Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml;Res\Pages\Hardware\Processors\Manufacturers.xaml;Res\Pages\Hierarchy.xaml;Res\Windows\Hardware\Processors\ManufacturerAdding.xaml;
 
-False
+True
 

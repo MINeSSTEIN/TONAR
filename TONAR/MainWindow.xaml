@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TONAR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280"
-        MinHeight="480" MinWidth="640">
+        Title="Система учета компьютеров" Height="720" Width="1280"
+        MinHeight="480" MinWidth="640"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Frame x:Name="LeftFrame"></Frame>
-        
+        <Frame x:Name="RightFrame" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

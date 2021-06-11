@@ -22,3 +22,10 @@ C:\Users\mines\source\repos\TONAR\TONAR\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\mines\source\repos\TONAR\TONAR\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR_Content.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR.csproj.CopyComplete
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Manufacturers.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ManufacturerAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Manufacturers.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ManufacturerAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\App.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsManufacturersView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsManufacturersView.baml

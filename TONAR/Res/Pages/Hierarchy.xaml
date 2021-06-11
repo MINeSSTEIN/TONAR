@@ -9,7 +9,7 @@
       Title="Hierarchy">
 
     <Grid>
-        <TabControl>
+        <TabControl BorderBrush="Black" BorderThickness="1">
             <TabItem Header="Компьютеры">
                 <ScrollViewer>
                     <TreeView x:Name="tvMainHierarchy">
@@ -20,10 +20,10 @@
                 <ScrollViewer>
                     <TreeView x:Name="tvHardware">
                         <TreeViewItem Header="Процессоры">
-                            <TreeViewItem Header="Производители">
+                            <TreeViewItem Header="Производители" Selected="TreeViewItem_Selected">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Добавить"></MenuItem>
+                                        <MenuItem Header="Добавить" Click="MenuItem_Click"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
@@ -50,7 +50,6 @@
                             </TreeViewItem>
                         </TreeViewItem>
                         <TreeViewItem Header="Видеокарты">
-                            
                         </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>

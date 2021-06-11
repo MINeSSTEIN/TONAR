@@ -139,6 +139,8 @@
     <EntitySetMapping Name="ProcessorsVendors">
       <EntityTypeMapping TypeName="TONAR_PCs_DBModel.ProcessorsVendors">
         <MappingFragment StoreEntitySet="ProcessorsVendors">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
