@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище masterModelContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="FormatPhoto">
+      <EntityTypeMapping TypeName="masterModel.FormatPhoto">
+        <MappingFragment StoreEntitySet="FormatPhoto">
+          <ScalarProperty Name="Id_Format" ColumnName="Id_Format" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="masterModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="Id_Q" ColumnName="Id_Q" />
+          <ScalarProperty Name="Id_Ph" ColumnName="Id_Ph" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoOneType">
+      <EntityTypeMapping TypeName="masterModel.PhotoOneType">
+        <MappingFragment StoreEntitySet="PhotoOneType">
+          <ScalarProperty Name="Id_PhotoOneType" ColumnName="Id_PhotoOneType" />
+          <ScalarProperty Name="IdCount" ColumnName="IdCount" />
+          <ScalarProperty Name="Id_Fromat" ColumnName="Id_Fromat" />
+          <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quantity">
+      <EntityTypeMapping TypeName="masterModel.Quantity">
+        <MappingFragment StoreEntitySet="Quantity">
+          <ScalarProperty Name="Id_Q" ColumnName="Id_Q" />
+          <ScalarProperty Name="quantity1" ColumnName="quantity" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type">
+      <EntityTypeMapping TypeName="masterModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="Id_type" ColumnName="Id_type" />
+          <ScalarProperty Name="type1" ColumnName="type" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_options">
+      <EntityTypeMapping TypeName="masterModel.MSreplication_options">
+        <MappingFragment StoreEntitySet="MSreplication_options">
+          <ScalarProperty Name="optname" ColumnName="optname" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="major_version" ColumnName="major_version" />
+          <ScalarProperty Name="minor_version" ColumnName="minor_version" />
+          <ScalarProperty Name="revision" ColumnName="revision" />
+          <ScalarProperty Name="install_failures" ColumnName="install_failures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_db">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_db">
+        <MappingFragment StoreEntitySet="spt_fallback_db">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_dbid" ColumnName="xfallback_dbid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_dev">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_dev">
+        <MappingFragment StoreEntitySet="spt_fallback_dev">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_low" ColumnName="xfallback_low" />
+          <ScalarProperty Name="xfallback_drive" ColumnName="xfallback_drive" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phyname" ColumnName="phyname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_usg">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_usg">
+        <MappingFragment StoreEntitySet="spt_fallback_usg">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_vstart" ColumnName="xfallback_vstart" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="segmap" ColumnName="segmap" />
+          <ScalarProperty Name="lstart" ColumnName="lstart" />
+          <ScalarProperty Name="sizepg" ColumnName="sizepg" />
+          <ScalarProperty Name="vstart" ColumnName="vstart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_monitor">
+      <EntityTypeMapping TypeName="masterModel.spt_monitor">
+        <MappingFragment StoreEntitySet="spt_monitor">
+          <ScalarProperty Name="lastrun" ColumnName="lastrun" />
+          <ScalarProperty Name="cpu_busy" ColumnName="cpu_busy" />
+          <ScalarProperty Name="io_busy" ColumnName="io_busy" />
+          <ScalarProperty Name="idle" ColumnName="idle" />
+          <ScalarProperty Name="pack_received" ColumnName="pack_received" />
+          <ScalarProperty Name="pack_sent" ColumnName="pack_sent" />
+          <ScalarProperty Name="connections" ColumnName="connections" />
+          <ScalarProperty Name="pack_errors" ColumnName="pack_errors" />
+          <ScalarProperty Name="total_read" ColumnName="total_read" />
+          <ScalarProperty Name="total_write" ColumnName="total_write" />
+          <ScalarProperty Name="total_errors" ColumnName="total_errors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_values">
+      <EntityTypeMapping TypeName="masterModel.spt_values">
+        <MappingFragment StoreEntitySet="spt_values">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_MScleanupmergepublisher" FunctionName="Хранилище masterModel.sp_MScleanupmergepublisher" />
+    <FunctionImportMapping FunctionImportName="sp_MSrepl_startup" FunctionName="Хранилище masterModel.sp_MSrepl_startup" />
+  </EntityContainerMapping>
+</Mapping>

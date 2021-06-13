@@ -1,7 +1,6 @@
 C:\Users\mines\source\repos\TONAR\TONAR\bin\Debug\TONAR.exe.config
 C:\Users\mines\source\repos\TONAR\TONAR\bin\Debug\TONAR.exe
 C:\Users\mines\source\repos\TONAR\TONAR\bin\Debug\TONAR.pdb
-C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR.csprojAssemblyReference.cache
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\MainWindow.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hierarchy.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\App.g.cs
@@ -29,3 +28,8 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processor
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\App.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsManufacturersView.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsManufacturersView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR.csprojAssemblyReference.cache
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ModelAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ModelAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Models.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Models.baml

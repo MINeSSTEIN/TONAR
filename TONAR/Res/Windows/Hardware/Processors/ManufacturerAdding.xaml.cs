@@ -19,22 +19,30 @@ namespace TONAR.Res.Windows.Hardware.Processors
 
         private void btnPMAdd_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
-            Entities.ProcessorsVendors vendor = new Entities.ProcessorsVendors();
-            CopyFile(_file, _newfile);
+            if (tbPMDesc.Text == "" || tbPMName.Text == "")
+            {
+                MessageBox.Show("Одно из важных полей пустое", "Ошибка");
+            }
+            else
+            {
+                DialogResult = true;
+                Entities.ProcessorsVendors vendor = new Entities.ProcessorsVendors();
+                CopyFile(_file, _newfile);
 
-            vendor.Name = tbPMName.Text;
-            vendor.Picture = "\\Pictures\\Processors\\Vendors\\" + tbPMName.Text + ".png";
-            vendor.Description = tbPMDesc.Text;
-            try
-            {
-                Code.StaticVisibility.e.ProcessorsVendors.Add(vendor);
-                Code.StaticVisibility.e.SaveChanges();
+                vendor.Name = tbPMName.Text;
+                vendor.Picture = "\\Pictures\\Processors\\Vendors\\" + tbPMName.Text + ".png";
+                vendor.Description = tbPMDesc.Text;
+                try
+                {
+                    Code.StaticVisibility.e.ProcessorsVendors.Add(vendor);
+                    Code.StaticVisibility.e.SaveChanges();
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка при добавлении запис", "Ошибка");
+                }
             }
-            catch
-            {
-                MessageBox.Show("Ошибка при добавлении запис", "Ошибка");
-            }
+
         }
 
         private void btnPMCancel_Click(object sender, RoutedEventArgs e)

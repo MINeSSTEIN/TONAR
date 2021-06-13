@@ -27,10 +27,10 @@
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
-                            <TreeViewItem Header="Модели">
+                            <TreeViewItem Header="Модели" Selected="TreeViewItem_Selected_1">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Добавить"></MenuItem>
+                                        <MenuItem Header="Добавить" Click="MenuItem_Click_1"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>

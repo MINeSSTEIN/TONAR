@@ -1,12 +1,11 @@
-﻿<Page x:Class="TONAR.Res.Customs.Hardware.Processors.ProcessorsManufacturersView"
+﻿<UserControl x:Class="TONAR.Res.Customs.Hardware.Processors.ProcessorsManufacturersView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TONAR.Res.Customs.Hardware.Processors"
       mc:Ignorable="d" 
-      d:DesignHeight="200" d:DesignWidth="800"
-      Title="ProcessorsManufacturersView">
+      d:DesignHeight="200" d:DesignWidth="800">
 
     <Grid Margin="10">
         <StackPanel Orientation="Horizontal">
@@ -15,6 +14,10 @@
                 <Label x:Name="lName"></Label>
                 <TextBlock x:Name="tblDesc" TextWrapping="Wrap" Height="140" Margin="5" Width="600"></TextBlock>
             </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                <Button x:Name="btnChange" Margin="30">Изменить</Button>
+                <Button x:Name="btnDelete" Margin="30">Удалить</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
-</Page>
+</UserControl>

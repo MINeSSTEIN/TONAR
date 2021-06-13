@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\mines\source\repos\TONAR\TONAR\App.xaml
-5208708929
-2876172293
-38-1516928775
+7-221529976
+4-1667941703
+54-1216224172
 18-895798998
-MainWindow.xaml;Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml;Res\Pages\Hardware\Processors\Manufacturers.xaml;Res\Pages\Hierarchy.xaml;Res\Windows\Hardware\Processors\ManufacturerAdding.xaml;
+MainWindow.xaml;Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml;Res\Pages\Hardware\Processors\Manufacturers.xaml;Res\Pages\Hardware\Processors\Models.xaml;Res\Pages\Hierarchy.xaml;Res\Windows\Hardware\Processors\ManufacturerAdding.xaml;Res\Windows\Hardware\Processors\ModelAdding.xaml;
 
 False
 

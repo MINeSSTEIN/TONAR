@@ -18,7 +18,7 @@ namespace TONAR.Res.Customs.Hardware.Processors
     /// <summary>
     /// Логика взаимодействия для ProcessorsManufacturersView.xaml
     /// </summary>
-    public partial class ProcessorsManufacturersView : Page
+    public partial class ProcessorsManufacturersView : UserControl
     {
         public ProcessorsManufacturersView()
         {

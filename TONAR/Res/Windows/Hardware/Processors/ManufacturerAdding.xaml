@@ -16,7 +16,7 @@
         <TextBox x:Name="tbPMPicturePath" IsEnabled="False" Margin="5,75,5,5" HorizontalAlignment="Left" Width="340"></TextBox>
         <Button x:Name="btnPictureAdd" Width="20" Content="..." Margin="353,75,5,5" Click="btnPictureAdd_Click"></Button>
         <Label Content="Краткое описание (необязательно)" Margin="0,100,0,0"></Label>
-        <TextBox x:Name="tbPMDesc" Margin="5,125,5,5" Width="374" Height="55"></TextBox>
+        <TextBox TextWrapping="Wrap" x:Name="tbPMDesc" Margin="5,125,5,5" Width="374" Height="55"></TextBox>
         <Button x:Name="btnPMAdd" Content="Добавить" Margin="5,185,5,5" Click="btnPMAdd_Click"></Button>
         <Button x:Name="btnPMCancel" Content="Отмена" Margin="110,185,5,5" Click="btnPMCancel_Click"></Button>
     </Grid>

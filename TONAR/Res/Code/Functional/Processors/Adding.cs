@@ -12,5 +12,11 @@ namespace TONAR.Res.Code.Functional.Processors
             ManufacturerAdding ma = new ManufacturerAdding();
             ma.ShowDialog();
         }
+
+        public static void AddProcessorModel()
+        {
+            ModelAdding ma = new ModelAdding();
+            ma.ShowDialog();
+        }
     }
 }
