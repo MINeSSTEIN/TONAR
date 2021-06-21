@@ -33,7 +33,32 @@ namespace TONAR.Res.Pages
 
         private void TreeViewItem_Selected_1(object sender, RoutedEventArgs e) //Модели процессоров
         {
-            //Code.StaticVisibility.f.Navigate(new.)
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Models());
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e) //Номера процессоров
+        {
+            Adding.AddProcessorNumber();
+        }
+
+        private void TreeViewItem_Selected_2(object sender, RoutedEventArgs e) //Номера процессоров
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Numbers());
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e) //Сокеты
+        {
+            Adding.AddSocket();
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e) //Процессоры
+        {
+            Adding.AddProcessor();
+        }
+
+        private void TreeViewItem_Selected_3(object sender, RoutedEventArgs e) //Сокеты
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Sockets());
         }
     }
 }

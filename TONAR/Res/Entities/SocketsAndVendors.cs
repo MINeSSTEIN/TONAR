@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TONAR
+namespace TONAR.Res.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class spt_values
+    public partial class SocketsAndVendors
     {
-        public string name { get; set; }
-        public int number { get; set; }
-        public string type { get; set; }
-        public Nullable<int> low { get; set; }
-        public Nullable<int> high { get; set; }
-        public Nullable<int> status { get; set; }
+        public int id { get; set; }
+        public int idSocket { get; set; }
+        public int idVendor { get; set; }
+    
+        public virtual ProcessorsVendors ProcessorsVendors { get; set; }
+        public virtual Sockets Sockets { get; set; }
     }
 }

@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+﻿using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace TONAR.Res.Pages.Hardware.Processors
 {
@@ -20,9 +10,34 @@ namespace TONAR.Res.Pages.Hardware.Processors
     /// </summary>
     public partial class Models : Page
     {
+        private DataGrid tmpGrid = new DataGrid();
+        private List<Customs.Hardware.Processors.ProcessorsModelsView> modelsView = new List<Customs.Hardware.Processors.ProcessorsModelsView>();
+
         public Models()
         {
             InitializeComponent();
+
+            LoadData();
         }
+
+        private void LoadData()
+        {
+            Code.StaticVisibility.e.ProcessorsModels.Load();
+            tmpGrid.ItemsSource = Code.StaticVisibility.e.ProcessorsModels.Local.ToBindingList();
+
+            try
+            {
+                for (int i = 0; i < tmpGrid.Items.Count - 1; i++)
+                {
+                    modelsView.Add(new Customs.Hardware.Processors.ProcessorsModelsView());
+
+                    modelsView[i].lModel.Content = Code.StaticVisibility.e.ProcessorsModels.Local[i].Name;
+
+                    spMs.Children.Add(modelsView[i]);
+                }
+            }
+            catch { }
+        }
+
     }
 }

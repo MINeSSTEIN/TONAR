@@ -4,56 +4,60 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b3b91037acd943d3a083b82c75d5cdf8" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Buildings" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.BuildingsAndDepartments" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Computers" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Departments" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Drives" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DriveSets" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DrivesTypes" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.HardwareManufacturers" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Motherboards" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.MotherboardsSBridges" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Processors" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsIndexes" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsMarks" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsModels" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsVendors" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAM" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAMTypes" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAMVolumes" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Sockets" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.VideoAdapts" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DepartmentsAndComputers" Width="1.5" PointX="11" PointY="10.625" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Buildings" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Departments" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_DriveSets" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_Motherboards" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_Processors" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_RAM" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_VideoAdapts" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Computers" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Departments" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Drives_DrivesTypes" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Drives_HardwareManufacturers" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DriveSets_Drives" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DriveSets_Drives1" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_HardwareManufacturers" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_HardwareManufacturers" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_VideoAdapts_HardwareManufacturers" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_MotherboardsSBridges" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_Sockets" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsIndexes" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsMarks" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsModels" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_Sockets" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMTypes" />
-        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMVolumes" />
+      <Diagram DiagramId="dc350cf1441d4d82a4d283a7806a3359" Name="Diagram1">
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Buildings" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.BuildingsAndDepartments" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Computers" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Departments" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DepartmentsAndComputers" Width="1.5" PointX="10.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Drives" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DriveSets" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.DrivesTypes" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.HardwareManufacturers" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Motherboards" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.MotherboardsSBridges" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Processors" Width="1.5" PointX="6" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsMarks" Width="1.5" PointX="3.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsModels" Width="1.5" PointX="3.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsVendors" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.ProcessorsVendorsAndModels" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAM" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAMTypes" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.RAMVolumes" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Sockets" Width="1.5" PointX="3.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.VideoAdapts" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_BuildingsAndDepartments_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_DriveSets" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_Motherboards" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_Processors" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_RAM" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Computers_VideoAdapts" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Computers" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DepartmentsAndComputers_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Drives_DrivesTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Drives_HardwareManufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DriveSets_Drives" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_DriveSets_Drives1" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_HardwareManufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_HardwareManufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_VideoAdapts_HardwareManufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_MotherboardsSBridges" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Motherboards_Sockets" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_MotherboardsSBridges_ProcessorsVendors" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsMarks" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsModels" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_ProcessorsVendors" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_Processors_Sockets" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_ProcessorsVendorsAndModels_ProcessorsModels" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_ProcessorsVendorsAndModels_ProcessorsVendors" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_VideoAdapts_ProcessorsVendors" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMVolumes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.SocketsAndVendors" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_SocketsAndVendors_ProcessorsVendors" />
+        <AssociationConnector Association="TONAR_PCs_DBModel.FK_SocketsAndVendors_Sockets" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

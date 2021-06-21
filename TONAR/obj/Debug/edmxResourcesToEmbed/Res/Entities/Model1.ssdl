@@ -102,25 +102,17 @@
     <Property Name="idVendor" Type="int" Nullable="false" />
     <Property Name="idMark" Type="int" Nullable="false" />
     <Property Name="idSocket" Type="int" Nullable="false" />
-    <Property Name="idIndex" Type="int" />
     <Property Name="CacheL1" Type="int" Nullable="false" />
     <Property Name="CacheL2" Type="int" Nullable="false" />
     <Property Name="CacheL3" Type="int" />
     <Property Name="Tickspeed" Type="nchar" MaxLength="10" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ProcessorsIndexes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="ProcessorsMarks">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Mark" Type="int" Nullable="false" />
+    <Property Name="Mark" Type="nvarchar" MaxLength="8" Nullable="false" />
   </EntityType>
   <EntityType Name="ProcessorsModels">
     <Key>
@@ -137,6 +129,14 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProcessorsVendorsAndModels">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idVendor" Type="int" Nullable="false" />
+    <Property Name="idModel" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RAM">
     <Key>
@@ -169,6 +169,14 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Socket" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocketsAndVendors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSocket" Type="int" Nullable="false" />
+    <Property Name="idVendor" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -394,18 +402,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Processors_ProcessorsIndexes">
-    <End Role="ProcessorsIndexes" Type="Self.ProcessorsIndexes" Multiplicity="0..1" />
-    <End Role="Processors" Type="Self.Processors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProcessorsIndexes">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Processors">
-        <PropertyRef Name="idIndex" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Processors_ProcessorsMarks">
     <End Role="ProcessorsMarks" Type="Self.ProcessorsMarks" Multiplicity="1" />
     <End Role="Processors" Type="Self.Processors" Multiplicity="*" />
@@ -454,6 +450,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProcessorsVendorsAndModels_ProcessorsModels">
+    <End Role="ProcessorsModels" Type="Self.ProcessorsModels" Multiplicity="1" />
+    <End Role="ProcessorsVendorsAndModels" Type="Self.ProcessorsVendorsAndModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsModels">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProcessorsVendorsAndModels">
+        <PropertyRef Name="idModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcessorsVendorsAndModels_ProcessorsVendors">
+    <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
+    <End Role="ProcessorsVendorsAndModels" Type="Self.ProcessorsVendorsAndModels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ProcessorsVendorsAndModels">
+        <PropertyRef Name="idVendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RAM_HardwareManufacturers">
     <End Role="HardwareManufacturers" Type="Self.HardwareManufacturers" Multiplicity="1" />
     <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
@@ -490,6 +510,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SocketsAndVendors_ProcessorsVendors">
+    <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
+    <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SocketsAndVendors">
+        <PropertyRef Name="idVendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SocketsAndVendors_Sockets">
+    <End Role="Sockets" Type="Self.Sockets" Multiplicity="1" />
+    <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sockets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SocketsAndVendors">
+        <PropertyRef Name="idSocket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_VideoAdapts_HardwareManufacturers">
     <End Role="HardwareManufacturers" Type="Self.HardwareManufacturers" Multiplicity="1" />
     <End Role="VideoAdapts" Type="Self.VideoAdapts" Multiplicity="*" />
@@ -515,6 +559,15 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="ReturnProcessorModelID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="ModelName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnProcessorVendorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="VendorName" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnSocketID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -558,14 +611,15 @@
     <EntitySet Name="Motherboards" EntityType="Self.Motherboards" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MotherboardsSBridges" EntityType="Self.MotherboardsSBridges" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Processors" EntityType="Self.Processors" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ProcessorsIndexes" EntityType="Self.ProcessorsIndexes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProcessorsMarks" EntityType="Self.ProcessorsMarks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProcessorsModels" EntityType="Self.ProcessorsModels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProcessorsVendors" EntityType="Self.ProcessorsVendors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessorsVendorsAndModels" EntityType="Self.ProcessorsVendorsAndModels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sockets" EntityType="Self.Sockets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
@@ -636,10 +690,6 @@
       <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
       <End Role="MotherboardsSBridges" EntitySet="MotherboardsSBridges" />
     </AssociationSet>
-    <AssociationSet Name="FK_Processors_ProcessorsIndexes" Association="Self.FK_Processors_ProcessorsIndexes">
-      <End Role="ProcessorsIndexes" EntitySet="ProcessorsIndexes" />
-      <End Role="Processors" EntitySet="Processors" />
-    </AssociationSet>
     <AssociationSet Name="FK_Processors_ProcessorsMarks" Association="Self.FK_Processors_ProcessorsMarks">
       <End Role="ProcessorsMarks" EntitySet="ProcessorsMarks" />
       <End Role="Processors" EntitySet="Processors" />
@@ -656,6 +706,14 @@
       <End Role="Sockets" EntitySet="Sockets" />
       <End Role="Processors" EntitySet="Processors" />
     </AssociationSet>
+    <AssociationSet Name="FK_ProcessorsVendorsAndModels_ProcessorsModels" Association="Self.FK_ProcessorsVendorsAndModels_ProcessorsModels">
+      <End Role="ProcessorsModels" EntitySet="ProcessorsModels" />
+      <End Role="ProcessorsVendorsAndModels" EntitySet="ProcessorsVendorsAndModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcessorsVendorsAndModels_ProcessorsVendors" Association="Self.FK_ProcessorsVendorsAndModels_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="ProcessorsVendorsAndModels" EntitySet="ProcessorsVendorsAndModels" />
+    </AssociationSet>
     <AssociationSet Name="FK_RAM_HardwareManufacturers" Association="Self.FK_RAM_HardwareManufacturers">
       <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />
       <End Role="RAM" EntitySet="RAM" />
@@ -667,6 +725,14 @@
     <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
       <End Role="RAMVolumes" EntitySet="RAMVolumes" />
       <End Role="RAM" EntitySet="RAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SocketsAndVendors_ProcessorsVendors" Association="Self.FK_SocketsAndVendors_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SocketsAndVendors_Sockets" Association="Self.FK_SocketsAndVendors_Sockets">
+      <End Role="Sockets" EntitySet="Sockets" />
+      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
     </AssociationSet>
     <AssociationSet Name="FK_VideoAdapts_HardwareManufacturers" Association="Self.FK_VideoAdapts_HardwareManufacturers">
       <End Role="HardwareManufacturers" EntitySet="HardwareManufacturers" />

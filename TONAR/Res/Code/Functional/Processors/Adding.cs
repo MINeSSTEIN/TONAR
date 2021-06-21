@@ -17,6 +17,46 @@ namespace TONAR.Res.Code.Functional.Processors
         {
             ModelAdding ma = new ModelAdding();
             ma.ShowDialog();
+            if (ma.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Models());
+            }
+        }
+
+        public static void AddProcessorNumber()
+        {
+            NumberAdding na = new NumberAdding();
+            na.ShowDialog();
+
+            if (na.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Numbers());
+            }
+        }
+
+        public static void AddProcessor()
+        {
+            ProcessorAdding pa = new ProcessorAdding();
+            pa.ShowInTaskbar = false;
+            pa.ShowDialog();
+
+            if(pa.DialogResult == true)
+            {
+                
+            }
+        }
+
+
+        public static void AddSocket()
+        {
+            SocketAdding sa = new SocketAdding();
+            sa.ShowInTaskbar = false;
+            sa.ShowDialog();
+
+            if (sa.DialogResult == true)
+            {
+
+            }
         }
     }
 }

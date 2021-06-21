@@ -19,7 +19,9 @@ namespace TONAR.Res.Entities
         {
             this.MotherboardsSBridges = new HashSet<MotherboardsSBridges>();
             this.Processors = new HashSet<Processors>();
+            this.ProcessorsVendorsAndModels = new HashSet<ProcessorsVendorsAndModels>();
             this.VideoAdapts = new HashSet<VideoAdapts>();
+            this.SocketsAndVendors = new HashSet<SocketsAndVendors>();
         }
     
         public int id { get; set; }
@@ -32,6 +34,10 @@ namespace TONAR.Res.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Processors> Processors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessorsVendorsAndModels> ProcessorsVendorsAndModels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VideoAdapts> VideoAdapts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SocketsAndVendors> SocketsAndVendors { get; set; }
     }
 }

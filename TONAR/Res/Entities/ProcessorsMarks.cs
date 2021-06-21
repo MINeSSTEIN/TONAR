@@ -21,7 +21,7 @@ namespace TONAR.Res.Entities
         }
     
         public int id { get; set; }
-        public int Mark { get; set; }
+        public string Mark { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Processors> Processors { get; set; }

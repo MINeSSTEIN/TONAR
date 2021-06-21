@@ -20,6 +20,11 @@
                 <ScrollViewer>
                     <TreeView x:Name="tvHardware">
                         <TreeViewItem Header="Процессоры">
+                            <TreeViewItem.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Добавить" Click="MenuItem_Click_4"></MenuItem>
+                                </ContextMenu>
+                            </TreeViewItem.ContextMenu>
                             <TreeViewItem Header="Производители" Selected="TreeViewItem_Selected">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
@@ -34,22 +39,20 @@
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
-                            <TreeViewItem Header="Поколения и номера">
+                            <TreeViewItem Header="Номера" Selected="TreeViewItem_Selected_2">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Добавить"></MenuItem>
-                                    </ContextMenu>
-                                </TreeViewItem.ContextMenu>
-                            </TreeViewItem>
-                            <TreeViewItem Header="Маркировки">
-                                <TreeViewItem.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="Добавить"></MenuItem>
+                                        <MenuItem Header="Добавить" Click="MenuItem_Click_2"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
                         </TreeViewItem>
-                        <TreeViewItem Header="Видеокарты">
+                        <TreeViewItem Header="Сокеты" Selected="TreeViewItem_Selected_3">
+                            <TreeViewItem.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                </ContextMenu>
+                            </TreeViewItem.ContextMenu>
                         </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>

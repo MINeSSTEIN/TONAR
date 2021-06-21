@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace TONAR.Res.Windows.Hardware.Processors
 {
@@ -22,6 +12,8 @@ namespace TONAR.Res.Windows.Hardware.Processors
         public ModelAdding()
         {
             InitializeComponent();
+
+            FillCB();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -32,24 +24,52 @@ namespace TONAR.Res.Windows.Hardware.Processors
             }
             else
             {
-                DialogResult = true;
                 Entities.ProcessorsModels model = new Entities.ProcessorsModels();
+                Entities.ProcessorsVendorsAndModels conn = new Entities.ProcessorsVendorsAndModels();
+
                 model.Name = tbName.Text;
+
                 try
                 {
                     Code.StaticVisibility.e.ProcessorsModels.Add(model);
+                    Code.StaticVisibility.e.SaveChanges();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка при добавлении данных");
+                }
+
+
+                try
+                {
+                    conn.idModel = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnProcessorModelID('{tbName.Text}')").SingleAsync().Result;
+                    conn.idVendor = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnProcessorVendorID('{cbVendorChosing.SelectedItem}')").SingleAsync().Result;
+
+                    Code.StaticVisibility.e.ProcessorsVendorsAndModels.Add(conn);
                     Code.StaticVisibility.e.SaveChanges();
                 }
                 catch
                 {
                     MessageBox.Show("Ошибка при добавлении данных");
                 }
+                DialogResult = true;
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+        }
+
+        private void FillCB()
+        {
+            cbVendorChosing.Items.Clear(); 
+            Code.StaticVisibility.e.ProcessorsVendors.Load();
+            foreach(Entities.ProcessorsVendors a in Code.StaticVisibility.e.ProcessorsVendors.Local)
+            {
+                cbVendorChosing.Items.Add(a.Name);
+            }
         }
     }
 }

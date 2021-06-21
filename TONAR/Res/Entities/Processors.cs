@@ -25,7 +25,6 @@ namespace TONAR.Res.Entities
         public int idVendor { get; set; }
         public int idMark { get; set; }
         public int idSocket { get; set; }
-        public Nullable<int> idIndex { get; set; }
         public int CacheL1 { get; set; }
         public int CacheL2 { get; set; }
         public Nullable<int> CacheL3 { get; set; }
@@ -33,7 +32,6 @@ namespace TONAR.Res.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Computers> Computers { get; set; }
-        public virtual ProcessorsIndexes ProcessorsIndexes { get; set; }
         public virtual ProcessorsMarks ProcessorsMarks { get; set; }
         public virtual ProcessorsModels ProcessorsModels { get; set; }
         public virtual ProcessorsVendors ProcessorsVendors { get; set; }

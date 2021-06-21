@@ -19,6 +19,7 @@ namespace TONAR.Res.Entities
         {
             this.Motherboards = new HashSet<Motherboards>();
             this.Processors = new HashSet<Processors>();
+            this.SocketsAndVendors = new HashSet<SocketsAndVendors>();
         }
     
         public int id { get; set; }
@@ -28,5 +29,7 @@ namespace TONAR.Res.Entities
         public virtual ICollection<Motherboards> Motherboards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Processors> Processors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SocketsAndVendors> SocketsAndVendors { get; set; }
     }
 }

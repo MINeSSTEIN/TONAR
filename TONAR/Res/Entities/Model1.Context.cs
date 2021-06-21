@@ -15,10 +15,10 @@ namespace TONAR.Res.Entities
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class TONAR_PCs_DBEntities : DbContext
+    public partial class TONAR_PCs_DBEntities1 : DbContext
     {
-        public TONAR_PCs_DBEntities()
-            : base("name=TONAR_PCs_DBEntities")
+        public TONAR_PCs_DBEntities1()
+            : base("name=TONAR_PCs_DBEntities1")
         {
         }
     
@@ -31,6 +31,7 @@ namespace TONAR.Res.Entities
         public virtual DbSet<BuildingsAndDepartments> BuildingsAndDepartments { get; set; }
         public virtual DbSet<Computers> Computers { get; set; }
         public virtual DbSet<Departments> Departments { get; set; }
+        public virtual DbSet<DepartmentsAndComputers> DepartmentsAndComputers { get; set; }
         public virtual DbSet<Drives> Drives { get; set; }
         public virtual DbSet<DriveSets> DriveSets { get; set; }
         public virtual DbSet<DrivesTypes> DrivesTypes { get; set; }
@@ -38,17 +39,17 @@ namespace TONAR.Res.Entities
         public virtual DbSet<Motherboards> Motherboards { get; set; }
         public virtual DbSet<MotherboardsSBridges> MotherboardsSBridges { get; set; }
         public virtual DbSet<Processors> Processors { get; set; }
-        public virtual DbSet<ProcessorsIndexes> ProcessorsIndexes { get; set; }
         public virtual DbSet<ProcessorsMarks> ProcessorsMarks { get; set; }
         public virtual DbSet<ProcessorsModels> ProcessorsModels { get; set; }
         public virtual DbSet<ProcessorsVendors> ProcessorsVendors { get; set; }
+        public virtual DbSet<ProcessorsVendorsAndModels> ProcessorsVendorsAndModels { get; set; }
         public virtual DbSet<RAM> RAM { get; set; }
         public virtual DbSet<RAMTypes> RAMTypes { get; set; }
         public virtual DbSet<RAMVolumes> RAMVolumes { get; set; }
         public virtual DbSet<Sockets> Sockets { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<VideoAdapts> VideoAdapts { get; set; }
-        public virtual DbSet<DepartmentsAndComputers> DepartmentsAndComputers { get; set; }
+        public virtual DbSet<SocketsAndVendors> SocketsAndVendors { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

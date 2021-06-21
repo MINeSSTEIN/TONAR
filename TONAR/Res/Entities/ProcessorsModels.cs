@@ -18,6 +18,7 @@ namespace TONAR.Res.Entities
         public ProcessorsModels()
         {
             this.Processors = new HashSet<Processors>();
+            this.ProcessorsVendorsAndModels = new HashSet<ProcessorsVendorsAndModels>();
         }
     
         public int id { get; set; }
@@ -25,5 +26,7 @@ namespace TONAR.Res.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Processors> Processors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessorsVendorsAndModels> ProcessorsVendorsAndModels { get; set; }
     }
 }

@@ -7,15 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TONAR
+namespace TONAR.Res.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Type
+    public partial class ProcessorsVendorsAndModels
     {
-        public int Id_type { get; set; }
-        public string type1 { get; set; }
-        public Nullable<int> Price { get; set; }
+        public int id { get; set; }
+        public int idVendor { get; set; }
+        public int idModel { get; set; }
+    
+        public virtual ProcessorsModels ProcessorsModels { get; set; }
+        public virtual ProcessorsVendors ProcessorsVendors { get; set; }
     }
 }

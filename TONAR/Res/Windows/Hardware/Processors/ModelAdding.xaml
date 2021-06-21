@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TONAR.Res.Windows.Hardware.Processors"
         mc:Ignorable="d"
-        Title="Добавить модель" Height="120" Width="196"
+        Title="Добавить модель" Height="145" Width="196"
         ResizeMode="NoResize"
         ShowInTaskbar="False">
     <Grid>
         <Label Content="Введите название модели"></Label>
-        <TextBox x:Name="tbName" Margin="5,30,0,0" Width="170"></TextBox>
-        <Button Click="btnAdd_Click" x:Name="btnAdd" Content="Добавить" Width="83" Margin="5,55,5,5"></Button>
-        <Button Click="btnCancel_Click" x:Name="btnCancel" Content="Отмена" Width="83" Margin="92,55,5,5"></Button>
+        <TextBox x:Name="tbName" Margin="5,30,0,0" Width="170" MaxLength="30"></TextBox>
+        <ComboBox Margin="5,55,0,0" Name="cbVendorChosing" Text="Выберите производителя" Width="170" SelectedIndex="0"></ComboBox>
+        <Button Click="btnAdd_Click" x:Name="btnAdd" Content="Добавить" Width="83" Margin="5,80,5,5"></Button>
+        <Button Click="btnCancel_Click" x:Name="btnCancel" Content="Отмена" Width="83" Margin="92,80,5,5"></Button>
     </Grid>
 </Window>
