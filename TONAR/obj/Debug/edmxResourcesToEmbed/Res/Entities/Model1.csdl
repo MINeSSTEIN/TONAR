@@ -5,7 +5,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="BuildingsAndDepartments" Relationship="Self.FK_BuildingsAndDepartments_Buildings" FromRole="Buildings" ToRole="BuildingsAndDepartments" />
   </EntityType>
   <EntityType Name="BuildingsAndDepartments">
@@ -171,8 +171,8 @@
     <NavigationProperty Name="MotherboardsSBridges" Relationship="Self.FK_MotherboardsSBridges_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="MotherboardsSBridges" />
     <NavigationProperty Name="Processors" Relationship="Self.FK_Processors_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="Processors" />
     <NavigationProperty Name="ProcessorsVendorsAndModels" Relationship="Self.FK_ProcessorsVendorsAndModels_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="ProcessorsVendorsAndModels" />
+    <NavigationProperty Name="SocketsAndVendors" Relationship="Self.FK_SocketsAndVendors_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="SocketsAndVendors" />
     <NavigationProperty Name="VideoAdapts" Relationship="Self.FK_VideoAdapts_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="VideoAdapts" />
-    <NavigationProperty Name="SocketsAndVendors" Relationship="TONAR_PCs_DBModel.FK_SocketsAndVendors_ProcessorsVendors" FromRole="ProcessorsVendors" ToRole="SocketsAndVendors" />
   </EntityType>
   <EntityType Name="ProcessorsVendorsAndModels">
     <Key>
@@ -223,7 +223,17 @@
     <Property Name="Socket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Motherboards" Relationship="Self.FK_Motherboards_Sockets" FromRole="Sockets" ToRole="Motherboards" />
     <NavigationProperty Name="Processors" Relationship="Self.FK_Processors_Sockets" FromRole="Sockets" ToRole="Processors" />
-    <NavigationProperty Name="SocketsAndVendors" Relationship="TONAR_PCs_DBModel.FK_SocketsAndVendors_Sockets" FromRole="Sockets" ToRole="SocketsAndVendors" />
+    <NavigationProperty Name="SocketsAndVendors" Relationship="Self.FK_SocketsAndVendors_Sockets" FromRole="Sockets" ToRole="SocketsAndVendors" />
+  </EntityType>
+  <EntityType Name="SocketsAndVendors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSocket" Type="Int32" Nullable="false" />
+    <Property Name="idVendor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProcessorsVendors" Relationship="Self.FK_SocketsAndVendors_ProcessorsVendors" FromRole="SocketsAndVendors" ToRole="ProcessorsVendors" />
+    <NavigationProperty Name="Sockets" Relationship="Self.FK_SocketsAndVendors_Sockets" FromRole="SocketsAndVendors" ToRole="Sockets" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -548,6 +558,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SocketsAndVendors_ProcessorsVendors">
+    <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
+    <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessorsVendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SocketsAndVendors">
+        <PropertyRef Name="idVendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_VideoAdapts_ProcessorsVendors">
     <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
     <End Role="VideoAdapts" Type="Self.VideoAdapts" Multiplicity="*" />
@@ -584,6 +606,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SocketsAndVendors_Sockets">
+    <End Role="Sockets" Type="Self.Sockets" Multiplicity="1" />
+    <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sockets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SocketsAndVendors">
+        <PropertyRef Name="idSocket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="TONAR_PCs_DBEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Buildings" EntityType="Self.Buildings" />
     <EntitySet Name="BuildingsAndDepartments" EntityType="Self.BuildingsAndDepartments" />
@@ -605,6 +639,7 @@
     <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" />
     <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" />
     <EntitySet Name="Sockets" EntityType="Self.Sockets" />
+    <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" />
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
@@ -707,6 +742,10 @@
       <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
       <End Role="ProcessorsVendorsAndModels" EntitySet="ProcessorsVendorsAndModels" />
     </AssociationSet>
+    <AssociationSet Name="FK_SocketsAndVendors_ProcessorsVendors" Association="Self.FK_SocketsAndVendors_ProcessorsVendors">
+      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
+      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
+    </AssociationSet>
     <AssociationSet Name="FK_VideoAdapts_ProcessorsVendors" Association="Self.FK_VideoAdapts_ProcessorsVendors">
       <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
       <End Role="VideoAdapts" EntitySet="VideoAdapts" />
@@ -718,6 +757,10 @@
     <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
       <End Role="RAMVolumes" EntitySet="RAMVolumes" />
       <End Role="RAM" EntitySet="RAM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SocketsAndVendors_Sockets" Association="Self.FK_SocketsAndVendors_Sockets">
+      <End Role="Sockets" EntitySet="Sockets" />
+      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
     </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -749,15 +792,6 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
-    <EntitySet Name="SocketsAndVendors" EntityType="TONAR_PCs_DBModel.SocketsAndVendors" />
-    <AssociationSet Name="FK_SocketsAndVendors_ProcessorsVendors" Association="TONAR_PCs_DBModel.FK_SocketsAndVendors_ProcessorsVendors">
-      <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
-      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SocketsAndVendors_Sockets" Association="TONAR_PCs_DBModel.FK_SocketsAndVendors_Sockets">
-      <End Role="Sockets" EntitySet="Sockets" />
-      <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
-    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -770,38 +804,4 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
-  <EntityType Name="SocketsAndVendors">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idSocket" Type="Int32" Nullable="false" />
-    <Property Name="idVendor" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="ProcessorsVendors" Relationship="TONAR_PCs_DBModel.FK_SocketsAndVendors_ProcessorsVendors" FromRole="SocketsAndVendors" ToRole="ProcessorsVendors" />
-    <NavigationProperty Name="Sockets" Relationship="TONAR_PCs_DBModel.FK_SocketsAndVendors_Sockets" FromRole="SocketsAndVendors" ToRole="Sockets" />
-  </EntityType>
-  <Association Name="FK_SocketsAndVendors_ProcessorsVendors">
-    <End Type="TONAR_PCs_DBModel.ProcessorsVendors" Role="ProcessorsVendors" Multiplicity="1" />
-    <End Type="TONAR_PCs_DBModel.SocketsAndVendors" Role="SocketsAndVendors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProcessorsVendors">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="SocketsAndVendors">
-        <PropertyRef Name="idVendor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SocketsAndVendors_Sockets">
-    <End Type="TONAR_PCs_DBModel.Sockets" Role="Sockets" Multiplicity="1" />
-    <End Type="TONAR_PCs_DBModel.SocketsAndVendors" Role="SocketsAndVendors" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Sockets">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="SocketsAndVendors">
-        <PropertyRef Name="idSocket" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

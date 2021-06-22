@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Collections.Generic;
 using TONAR.Res.Windows.Hardware.Processors;
+using TONAR.Res.Windows.Hierarchy.Buildings;
 
 namespace TONAR.Res.Code.Functional.Processors
 {
@@ -56,6 +57,18 @@ namespace TONAR.Res.Code.Functional.Processors
             if (sa.DialogResult == true)
             {
 
+            }
+        }
+
+        public static void AddBuilding()
+        {
+            BuildingAdding ba = new BuildingAdding();
+            ba.ShowInTaskbar = false;
+            ba.ShowDialog();
+
+            if(ba.DialogResult == true)
+            {
+                StaticVisibility.fi.Navigate(new Pages.Hierarchy());
             }
         }
     }

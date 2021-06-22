@@ -13,7 +13,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="LeftFrame"></Frame>
+        <Frame x:Name="LeftFrame" NavigationUIVisibility="Hidden"></Frame>
         <Frame x:Name="RightFrame" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

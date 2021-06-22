@@ -13,6 +13,13 @@
             <TabItem Header="Компьютеры">
                 <ScrollViewer>
                     <TreeView x:Name="tvMainHierarchy">
+                        <TreeView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить здание" Click="MenuItem_Click_5">
+                                    
+                                </MenuItem>
+                            </ContextMenu>
+                        </TreeView.ContextMenu>
                     </TreeView>
                 </ScrollViewer>
             </TabItem>

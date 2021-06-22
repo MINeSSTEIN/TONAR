@@ -191,6 +191,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SocketsAndVendors">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.SocketsAndVendors">
+        <MappingFragment StoreEntitySet="SocketsAndVendors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idSocket" ColumnName="idSocket" />
+          <ScalarProperty Name="idVendor" ColumnName="idVendor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="TONAR_PCs_DBModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -237,14 +246,5 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище TONAR_PCs_DBModel.sp_upgraddiagrams" />
-    <EntitySetMapping Name="SocketsAndVendors">
-      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.SocketsAndVendors">
-        <MappingFragment StoreEntitySet="SocketsAndVendors">
-          <ScalarProperty Name="idVendor" ColumnName="idVendor" />
-          <ScalarProperty Name="idSocket" ColumnName="idSocket" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
