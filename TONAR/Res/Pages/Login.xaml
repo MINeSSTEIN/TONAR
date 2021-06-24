@@ -1,0 +1,19 @@
+﻿<Window x:Class="TONAR.Res.Pages.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TONAR.Res.Pages"
+        mc:Ignorable="d"
+        Title="Вход в систему" Height="130" Width="250">
+    <Grid>
+        <Label Content="Логин" Margin="15,1,-15,-1"></Label>
+        <Label Content="Пароль" Margin="15,30,-15,-30"></Label>
+
+        <TextBox x:Name="tbLogin" Margin="80,9,0,0" Width="140"></TextBox>
+        <PasswordBox x:Name="pbPassword" Height="20" Margin="78,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="142"/>
+
+        <Button Content="Войти" x:Name="btnLogin" Margin="120,59,0,0" Click="btnLogin_Click"></Button>
+        <Button Content="Отмена" x:Name="btnCancel" Margin="15,59,0,0" Click="btnCancel_Click"></Button>
+    </Grid>
+</Window>

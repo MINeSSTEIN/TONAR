@@ -23,11 +23,26 @@ namespace TONAR
     {
         public MainWindow()
         {
-            InitializeComponent();
-            LeftFrame.Navigate(new Hierarchy());
+            LogMeIn();
+        }
 
-            Res.Code.StaticVisibility.f = RightFrame;
-            Res.Code.StaticVisibility.fi = LeftFrame;
+        private void LogMeIn()
+        {
+            Login l = new Login();
+            l.ShowDialog();
+            if (l.DialogResult == false)
+            {
+                return;
+
+            }
+            if (l.DialogResult == true)
+            {
+                InitializeComponent();
+                LeftFrame.Navigate(new Hierarchy());
+
+                Res.Code.StaticVisibility.f = RightFrame;
+                Res.Code.StaticVisibility.fi = LeftFrame;
+            }
         }
     }
 }

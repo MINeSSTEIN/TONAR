@@ -58,6 +58,7 @@
         <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMTypes" ManuallyRouted="false" />
         <AssociationConnector Association="TONAR_PCs_DBModel.FK_RAM_RAMVolumes" ManuallyRouted="false" />
         <AssociationConnector Association="TONAR_PCs_DBModel.FK_SocketsAndVendors_Sockets" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TONAR_PCs_DBModel.Users" Width="1.5" PointX="9.25" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

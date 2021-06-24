@@ -53,3 +53,5 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processor
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Sockets.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\BuildingAdding.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\BuildingAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.baml

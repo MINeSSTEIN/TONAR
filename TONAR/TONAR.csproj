@@ -181,6 +181,9 @@
     <Compile Include="Res\Entities\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Res\Entities\Users.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Res\Entities\VideoAdapts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -201,6 +204,9 @@
     </Compile>
     <Compile Include="Res\Pages\Hierarchy.xaml.cs">
       <DependentUpon>Hierarchy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Pages\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Windows\Hardware\Processors\ManufacturerAdding.xaml.cs">
       <DependentUpon>ManufacturerAdding.xaml</DependentUpon>
@@ -269,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Pages\Hierarchy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Pages\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

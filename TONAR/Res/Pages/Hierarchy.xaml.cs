@@ -56,6 +56,26 @@ namespace TONAR.Res.Pages
             }
         }
 
+        private void LoadDepartnemtsToList()
+        {
+            Code.StaticVisibility.e.Departments.Load();
+            for(int i = 0; i < Code.StaticVisibility.e.Departments.Local.Count; i++)
+            {
+                MenuItem mi = new MenuItem();
+                ContextMenu cm = new ContextMenu();
+                TreeViewItem _b = new TreeViewItem();
+
+                mi.Header = "Добавить компьютер";
+                mi.Click += BuildingSelected;
+
+                cm.Items.Add(mi);
+
+                _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
+                _b.ContextMenu = cm;
+                //_b.Selected += 
+            }
+        }
+
         private void BuildingSelected(object sender, RoutedEventArgs e)
         {
             Code.StaticVisibility.mi = (TreeViewItem)sender;

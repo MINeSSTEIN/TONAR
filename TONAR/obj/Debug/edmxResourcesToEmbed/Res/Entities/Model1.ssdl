@@ -188,6 +188,14 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="VideoAdapts">
     <Key>
       <PropertyRef Name="id" />
@@ -621,6 +629,7 @@
     <EntitySet Name="Sockets" EntityType="Self.Sockets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
       <End Role="Buildings" EntitySet="Buildings" />
