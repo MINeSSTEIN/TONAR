@@ -363,7 +363,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Res\Windows\Hardware\Drives\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Res\Entities\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

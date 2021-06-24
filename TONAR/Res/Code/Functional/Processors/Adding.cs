@@ -83,5 +83,10 @@ namespace TONAR.Res.Code.Functional.Processors
                 StaticVisibility.fi.Navigate(new Pages.Hierarchy());
             }
         }
+
+        public static void AddDriveType()
+        {
+
+        }
     }
 }

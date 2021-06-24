@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Windows;
 
 namespace TONAR.Res.Windows.Hardware.Processors
@@ -21,7 +22,34 @@ namespace TONAR.Res.Windows.Hardware.Processors
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if(tbL1.Text == ""||
+                tbL2.Text == ""||
+                tbTick.Text == ""||
+                cbModels.SelectedItem.ToString() == ""||
+                cbNumbers.SelectedItem.ToString() == ""||
+                cbSockets.SelectedItem.ToString() == ""||
+                cbVendors.SelectedItem.ToString()=="")
+            {
+                MessageBox.Show("Важное поле пусто", "Ошибка");
+            }
+            try
+            {
+                Entities.Processors proc = new Entities.Processors();
+                proc.CacheL1 = Convert.ToInt32(tbL1.Text);
+                proc.CacheL2 = Convert.ToInt32(tbL2.Text);
+                proc.CacheL3 = Convert.ToInt32(tbL3.Text);
+                proc.Tickspeed = tbTick.Text;
+                proc.idMark = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnProcessorMarkID('{cbNumbers.SelectedItem}')").SingleAsync().Result;
+                proc.idModel = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnProcessorModelID('{cbModels.SelectedItem}')").SingleAsync().Result;
+                proc.idSocket = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnSocketID('{cbSockets.SelectedItem}')").SingleAsync().Result;
+                proc.idVendor = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.ReturnProcessorVendorID('{cbVendors.SelectedItem}')").SingleAsync().Result;
 
+                Code.StaticVisibility.e.Processors.Add(proc);
+                Code.StaticVisibility.e.SaveChanges();
+
+                DialogResult = true;
+            }
+            catch { MessageBox.Show("Ошибка при добавлении данных"); }
         }
 
         private void FillData()

@@ -61,6 +61,27 @@
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
                         </TreeViewItem>
+                        <TreeViewItem Header="Наборы ПЗУ" Selected="TreeViewItem_Selected_3">
+                            <TreeViewItem.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                </ContextMenu>
+                            </TreeViewItem.ContextMenu>
+                            <TreeViewItem Header="Модели ПЗУ" Selected="TreeViewItem_Selected_3">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                                <TreeViewItem Header="Типы ПЗУ" Selected="TreeViewItem_Selected_4">
+                                    <TreeViewItem.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Добавить" Click="MenuItem_Click_6"></MenuItem>
+                                        </ContextMenu>
+                                    </TreeViewItem.ContextMenu>
+                                </TreeViewItem>
+                            </TreeViewItem>
+                        </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>
             </TabItem>

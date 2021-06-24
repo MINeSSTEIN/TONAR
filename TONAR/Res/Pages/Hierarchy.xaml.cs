@@ -178,5 +178,15 @@ namespace TONAR.Res.Pages
         {
             Adding.AddBuilding();
         }
+
+        private void TreeViewItem_Selected_4(object sender, RoutedEventArgs e) //Типы ПЗУ
+        {
+
+        }
+
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e) //Типы ПЗУ
+        {
+            Adding.AddDriveType();
+        }
     }
 }
