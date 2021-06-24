@@ -20,6 +20,8 @@ namespace TONAR.Res.Pages
         {
             InitializeComponent();
             LoadBuildingsToList();
+            LoadDepartnemtsToList();
+            LoadDepartmentsToBuildings();
             LoadBuildingsToHierarchy();
         }
 
@@ -41,7 +43,6 @@ namespace TONAR.Res.Pages
 
                     _b.Header = Code.StaticVisibility.e.Buildings.Local[i].Name;
                     _b.ContextMenu = cm;
-                    _b.Selected += BuildingSelected;
                     buildings.Add(_b);
                 }
                 catch { MessageBox.Show("Ошибка при загрузке данных", "Ошибка"); }
@@ -66,24 +67,48 @@ namespace TONAR.Res.Pages
                 TreeViewItem _b = new TreeViewItem();
 
                 mi.Header = "Добавить компьютер";
-                mi.Click += BuildingSelected;
+                mi.Click += DepartmentMenuAddClick;
 
                 cm.Items.Add(mi);
 
                 _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
                 _b.ContextMenu = cm;
-                //_b.Selected += 
+                departments.Add(_b);
             }
         }
 
-        private void BuildingSelected(object sender, RoutedEventArgs e)
+        private void LoadDepartmentsToBuildings()
         {
-            Code.StaticVisibility.mi = (TreeViewItem)sender;
+            Code.StaticVisibility.e.BuildingsAndDepartments.Load();
+            for(int i = 0; i < buildings.Count; i++)
+            {
+                for(int j =0; j < departments.Count; j++)
+                {
+                    if( Code.StaticVisibility.e.BuildingsAndDepartments.Local[j].idBuilding
+                        ==
+                        Code.StaticVisibility.e.Buildings.Local[i].id 
+
+                        &&
+
+                        Code.StaticVisibility.e.BuildingsAndDepartments.Local[j].idDepartment
+                        ==
+                        Code.StaticVisibility.e.Departments.Local[j].id)
+                    {
+                        buildings[i].Items.Add(departments[j]);
+                    }
+                }
+            }
         }
 
         private void BuildingsMenuAddClick(object sender, RoutedEventArgs e)
         {
+            Code.StaticVisibility.mi = (TreeViewItem)sender;
             MessageBox.Show("Успешно!");
+        }
+
+        private void DepartmentMenuAddClick(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.mi = (TreeViewItem)sender;
         }
 
 
