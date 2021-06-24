@@ -226,6 +226,9 @@
     <Compile Include="Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml.cs">
       <DependentUpon>BuildingAdding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml.cs">
+      <DependentUpon>DepartmentAdding.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -303,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

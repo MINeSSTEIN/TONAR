@@ -71,5 +71,17 @@ namespace TONAR.Res.Code.Functional.Processors
                 StaticVisibility.fi.Navigate(new Pages.Hierarchy());
             }
         }
+
+        public static void AddDepartment()
+        {
+            Windows.Hierarchy.Buildings.Departments.DepartmentAdding da = new Windows.Hierarchy.Buildings.Departments.DepartmentAdding();
+            da.ShowInTaskbar = false;
+            da.ShowDialog();
+
+            if(da.DialogResult == true)
+            {
+                StaticVisibility.fi.Navigate(new Pages.Hierarchy());
+            }
+        }
     }
 }

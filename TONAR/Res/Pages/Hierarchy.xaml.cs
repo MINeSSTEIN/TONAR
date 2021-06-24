@@ -16,6 +16,7 @@ namespace TONAR.Res.Pages
         List<TreeViewItem> departments = new List<TreeViewItem>();
         List<TreeViewItem> Computers = new List<TreeViewItem>();
 
+
         public Hierarchy()
         {
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace TONAR.Res.Pages
 
                     _b.Header = Code.StaticVisibility.e.Buildings.Local[i].Name;
                     _b.ContextMenu = cm;
+                    _b.MouseRightButtonDown += (sender, MouseRightButtonDown) => { _b_MouseRightButtonDown(sender, MouseRightButtonDown, _b.Header.ToString()); };
                     buildings.Add(_b);
                 }
                 catch { MessageBox.Show("Ошибка при загрузке данных", "Ошибка"); }
@@ -79,12 +81,18 @@ namespace TONAR.Res.Pages
 
                     cm.Items.Add(mi);
 
+
                     _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
                     _b.ContextMenu = cm;
                     departments.Add(_b);
                 }
             }
             catch { MessageBox.Show("Ошибка при загрузке данных", "Ошибка"); }
+        }
+
+        private void _b_MouseRightButtonDown(object sender, RoutedEventArgs e, string a)
+        {
+            Code.StaticVisibility.mi = a;
         }
 
         private void LoadDepartmentsToBuildings()
@@ -112,13 +120,12 @@ namespace TONAR.Res.Pages
 
         private void BuildingsMenuAddClick(object sender, RoutedEventArgs e)
         {
-            Code.StaticVisibility.mi = (TreeViewItem)sender;
-            MessageBox.Show("Успешно!");
+            Adding.AddDepartment();
         }
 
         private void DepartmentMenuAddClick(object sender, RoutedEventArgs e)
         {
-            Code.StaticVisibility.mi = (TreeViewItem)sender;
+            //Code.StaticVisibility.mi = 
         }
 
 

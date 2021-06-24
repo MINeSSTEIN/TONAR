@@ -55,3 +55,5 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Building
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\BuildingAdding.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.baml
