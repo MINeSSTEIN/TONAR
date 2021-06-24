@@ -57,3 +57,5 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Login.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsView.baml

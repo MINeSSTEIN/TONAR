@@ -255,5 +255,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="V_ProcessorsStandart">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.V_ProcessorsStandart">
+        <MappingFragment StoreEntitySet="V_ProcessorsStandart">
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="vName" ColumnName="vName" />
+          <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
+          <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
+          <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
+          <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

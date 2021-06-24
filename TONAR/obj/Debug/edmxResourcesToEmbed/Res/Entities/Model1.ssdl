@@ -206,6 +206,31 @@
     <Property Name="Volume" Type="int" Nullable="false" />
     <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.V_ProcessorsStandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="V_ProcessorsStandart">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CacheL1" />
+      <PropertyRef Name="CacheL2" />
+      <PropertyRef Name="Tickspeed" />
+      <PropertyRef Name="vName" />
+      <PropertyRef Name="Picture" />
+      <PropertyRef Name="Mark" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Socket" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="CacheL1" Type="int" Nullable="false" />
+    <Property Name="CacheL2" Type="int" Nullable="false" />
+    <Property Name="CacheL3" Type="int" />
+    <Property Name="Tickspeed" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="vName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mark" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Socket" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="FK_BuildingsAndDepartments_Buildings">
     <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
     <End Role="BuildingsAndDepartments" Type="Self.BuildingsAndDepartments" Multiplicity="*" />
@@ -567,6 +592,15 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="ReturnBuildingID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="BuildingName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnDepartmentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnProcessorMarkID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="ProcessorMark" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="ReturnProcessorModelID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="ModelName" Type="nvarchar(max)" Mode="In" />
   </Function>
@@ -631,6 +665,20 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_ProcessorsStandart].[id] AS [id], 
+    [V_ProcessorsStandart].[CacheL1] AS [CacheL1], 
+    [V_ProcessorsStandart].[CacheL2] AS [CacheL2], 
+    [V_ProcessorsStandart].[CacheL3] AS [CacheL3], 
+    [V_ProcessorsStandart].[Tickspeed] AS [Tickspeed], 
+    [V_ProcessorsStandart].[vName] AS [vName], 
+    [V_ProcessorsStandart].[Picture] AS [Picture], 
+    [V_ProcessorsStandart].[Mark] AS [Mark], 
+    [V_ProcessorsStandart].[Name] AS [Name], 
+    [V_ProcessorsStandart].[Socket] AS [Socket]
+    FROM [dbo].[V_ProcessorsStandart] AS [V_ProcessorsStandart]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
       <End Role="Buildings" EntitySet="Buildings" />
       <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />

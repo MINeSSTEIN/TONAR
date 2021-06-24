@@ -793,6 +793,7 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="Users" EntityType="TONAR_PCs_DBModel.Users" />
+    <EntitySet Name="V_ProcessorsStandart" EntityType="TONAR_PCs_DBModel.V_ProcessorsStandart" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -812,5 +813,28 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_ProcessorsStandart">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CacheL1" />
+      <PropertyRef Name="CacheL2" />
+      <PropertyRef Name="Tickspeed" />
+      <PropertyRef Name="vName" />
+      <PropertyRef Name="Picture" />
+      <PropertyRef Name="Mark" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Socket" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="CacheL1" Type="Int32" Nullable="false" />
+    <Property Name="CacheL2" Type="Int32" Nullable="false" />
+    <Property Name="CacheL3" Type="Int32" />
+    <Property Name="Tickspeed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="vName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mark" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Socket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

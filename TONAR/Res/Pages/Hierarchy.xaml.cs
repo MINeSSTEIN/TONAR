@@ -128,7 +128,6 @@ namespace TONAR.Res.Pages
             //Code.StaticVisibility.mi = 
         }
 
-
         private void MenuItem_Click(object sender, RoutedEventArgs e) //Производители процессоров
         {
             Adding.AddProcessorManufacturer();
@@ -187,6 +186,11 @@ namespace TONAR.Res.Pages
         private void MenuItem_Click_6(object sender, RoutedEventArgs e) //Типы ПЗУ
         {
             Adding.AddDriveType();
+        }
+
+        private void TreeViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Processors());
         }
     }
 }

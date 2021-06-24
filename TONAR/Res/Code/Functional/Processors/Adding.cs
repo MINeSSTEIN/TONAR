@@ -43,7 +43,7 @@ namespace TONAR.Res.Code.Functional.Processors
 
             if(pa.DialogResult == true)
             {
-                
+                StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Processors());
             }
         }
 
@@ -56,7 +56,7 @@ namespace TONAR.Res.Code.Functional.Processors
 
             if (sa.DialogResult == true)
             {
-
+                StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Sockets());
             }
         }
 

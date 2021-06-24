@@ -91,6 +91,9 @@
     <Compile Include="Res\Customs\Hardware\Processors\ProcessorsNumbersView.xaml.cs">
       <DependentUpon>ProcessorsNumbersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Customs\Hardware\Processors\ProcessorsView.xaml.cs">
+      <DependentUpon>ProcessorsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Customs\Hardware\Processors\SocketView.xaml.cs">
       <DependentUpon>SocketView.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,9 @@
     <Compile Include="Res\Entities\VideoAdapts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Res\Entities\V_ProcessorsStandart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Res\Pages\Hardware\Processors\Manufacturers.xaml.cs">
       <DependentUpon>Manufacturers.xaml</DependentUpon>
     </Compile>
@@ -250,6 +256,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Customs\Hardware\Processors\ProcessorsNumbersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Customs\Hardware\Processors\ProcessorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
