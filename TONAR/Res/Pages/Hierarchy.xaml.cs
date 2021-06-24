@@ -19,12 +19,18 @@ namespace TONAR.Res.Pages
         public Hierarchy()
         {
             InitializeComponent();
+
             LoadBuildingsToList();
             LoadDepartnemtsToList();
+
             LoadDepartmentsToBuildings();
+
             LoadBuildingsToHierarchy();
         }
 
+        /// <summary>
+        /// Загружает здания из базы в коллекцию buildings
+        /// </summary>
         private void LoadBuildingsToList()
         {
             Code.StaticVisibility.e.Buildings.Load();
@@ -59,22 +65,26 @@ namespace TONAR.Res.Pages
 
         private void LoadDepartnemtsToList()
         {
-            Code.StaticVisibility.e.Departments.Load();
-            for(int i = 0; i < Code.StaticVisibility.e.Departments.Local.Count; i++)
+            try
             {
-                MenuItem mi = new MenuItem();
-                ContextMenu cm = new ContextMenu();
-                TreeViewItem _b = new TreeViewItem();
+                Code.StaticVisibility.e.Departments.Load();
+                for (int i = 0; i < Code.StaticVisibility.e.Departments.Local.Count; i++)
+                {
+                    MenuItem mi = new MenuItem();
+                    ContextMenu cm = new ContextMenu();
+                    TreeViewItem _b = new TreeViewItem();
 
-                mi.Header = "Добавить компьютер";
-                mi.Click += DepartmentMenuAddClick;
+                    mi.Header = "Добавить компьютер";
+                    mi.Click += DepartmentMenuAddClick;
 
-                cm.Items.Add(mi);
+                    cm.Items.Add(mi);
 
-                _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
-                _b.ContextMenu = cm;
-                departments.Add(_b);
+                    _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
+                    _b.ContextMenu = cm;
+                    departments.Add(_b);
+                }
             }
+            catch { MessageBox.Show("Ошибка при загрузке данных", "Ошибка"); }
         }
 
         private void LoadDepartmentsToBuildings()
