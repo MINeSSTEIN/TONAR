@@ -13,6 +13,7 @@
             <TabItem Header="Компьютеры">
                 <ScrollViewer>
                     <TreeView x:Name="tvMainHierarchy">
+                        <TextBox x:Name="tbSearch" Width="200" TextChanged="tbSearch_TextChanged"></TextBox>
                         <TreeView.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Добавить здание" Click="MenuItem_Click_5">
@@ -25,28 +26,39 @@
             </TabItem>
             <TabItem Header="Аппаратное обеспечение">
                 <ScrollViewer>
+                    <!--Процессоры-->
+                    
                     <TreeView x:Name="tvHardware">
-                        <TreeViewItem Header="Процессоры" MouseDoubleClick="TreeViewItem_MouseDoubleClick">
+                        <TreeViewItem Header="Процессоры">
+                            
                             <TreeViewItem.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Добавить" Click="MenuItem_Click_4"></MenuItem>
+                                    <MenuItem x:Name="miProcessorsWatch" Header="Посмотреть" Click="miProcessorsWatch_Click"></MenuItem>
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
-                            <TreeViewItem Header="Производители" Selected="TreeViewItem_Selected">
+                            
+                            
+                            <TreeViewItem Header="Производители">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click"></MenuItem>
+                                        <MenuItem x:Name="miProcessorsVendorsWatch" Header="Посмотреть" Click="miProcessorsVendorsWatch_Click"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
-                            <TreeViewItem Header="Модели" Selected="TreeViewItem_Selected_1">
+                            
+                            
+                            <TreeViewItem Header="Модели" MouseDoubleClick="TreeViewItem_MouseDoubleClick_2">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click_1"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
-                            <TreeViewItem Header="Номера" Selected="TreeViewItem_Selected_2">
+                            
+                            
+                            <TreeViewItem Header="Номера" MouseDoubleClick="TreeViewItem_MouseDoubleClick_3">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click_2"></MenuItem>
@@ -54,26 +66,36 @@
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
                         </TreeViewItem>
-                        <TreeViewItem Header="Сокеты" Selected="TreeViewItem_Selected_3">
+
+
+                        <!--Сокеты-->
+                        <TreeViewItem Header="Сокеты" MouseDoubleClick="TreeViewItem_MouseDoubleClick_4">
                             <TreeViewItem.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
                         </TreeViewItem>
-                        <TreeViewItem Header="Наборы ПЗУ" Selected="TreeViewItem_Selected_3">
+
+
+                        <!--ПЗУ-->
+                        <TreeViewItem Header="Наборы ПЗУ">
                             <TreeViewItem.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
-                            <TreeViewItem Header="Модели ПЗУ" Selected="TreeViewItem_Selected_3">
+                            
+                            
+                            <TreeViewItem Header="Модели ПЗУ" Selected="TreeViewItem_Selected_3" >
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
-                                <TreeViewItem Header="Типы ПЗУ" Selected="TreeViewItem_Selected_4">
+                                
+                                
+                                <TreeViewItem Header="Типы ПЗУ" Selected="TreeViewItem_Selected_4" >
                                     <TreeViewItem.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Добавить" Click="MenuItem_Click_6"></MenuItem>

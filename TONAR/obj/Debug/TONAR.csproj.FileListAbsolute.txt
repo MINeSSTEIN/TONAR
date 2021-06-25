@@ -44,7 +44,6 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ProcessorAdding.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Processors\Processors.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\ProcessorAdding.baml
-C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR.csprojAssemblyReference.cache
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\SocketAdding.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Processors\SocketAdding.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\SocketView.g.cs
@@ -59,3 +58,10 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Building
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsView.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\Processors\ProcessorsView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ROMs\ROMsTypesView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ROMs\ROMsTypesView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\TONAR.csprojAssemblyReference.cache
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMsType.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsTypeAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMsType.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsTypeAdding.baml

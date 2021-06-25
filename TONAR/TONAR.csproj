@@ -97,6 +97,9 @@
     <Compile Include="Res\Customs\Hardware\Processors\SocketView.xaml.cs">
       <DependentUpon>SocketView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Customs\Hardware\ROMs\ROMsTypesView.xaml.cs">
+      <DependentUpon>ROMsTypesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Entities\Buildings.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -193,6 +196,9 @@
     <Compile Include="Res\Entities\V_ProcessorsStandart.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Res\Pages\Hardware\Drives\ROMsType.xaml.cs">
+      <DependentUpon>ROMsType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Pages\Hardware\Processors\Manufacturers.xaml.cs">
       <DependentUpon>Manufacturers.xaml</DependentUpon>
     </Compile>
@@ -213,6 +219,9 @@
     </Compile>
     <Compile Include="Res\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml.cs">
+      <DependentUpon>ROMsTypeAdding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Windows\Hardware\Processors\ManufacturerAdding.xaml.cs">
       <DependentUpon>ManufacturerAdding.xaml</DependentUpon>
@@ -267,6 +276,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\Customs\Hardware\ROMs\ROMsTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Pages\Hardware\Drives\ROMsType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Pages\Hardware\Processors\Manufacturers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,6 +309,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Pages\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -373,9 +394,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Res\Windows\Hardware\Drives\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Res\Entities\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

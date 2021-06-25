@@ -133,29 +133,14 @@ namespace TONAR.Res.Pages
             Adding.AddProcessorManufacturer();
         }
 
-        private void TreeViewItem_Selected(object sender, RoutedEventArgs e) //Производители процессоров
-        {
-            Code.StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Manufacturers());
-        }
-
         private void MenuItem_Click_1(object sender, RoutedEventArgs e) //Модели процессоров
         {
             Adding.AddProcessorModel();
         }
 
-        private void TreeViewItem_Selected_1(object sender, RoutedEventArgs e) //Модели процессоров
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Models());
-        }
-
         private void MenuItem_Click_2(object sender, RoutedEventArgs e) //Номера процессоров
         {
             Adding.AddProcessorNumber();
-        }
-
-        private void TreeViewItem_Selected_2(object sender, RoutedEventArgs e) //Номера процессоров
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Numbers());
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e) //Сокеты
@@ -168,11 +153,6 @@ namespace TONAR.Res.Pages
             Adding.AddProcessor();
         }
 
-        private void TreeViewItem_Selected_3(object sender, RoutedEventArgs e) //Сокеты
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Sockets());
-        }
-
         private void MenuItem_Click_5(object sender, RoutedEventArgs e) //Иерархия с компьютерами
         {
             Adding.AddBuilding();
@@ -180,7 +160,7 @@ namespace TONAR.Res.Pages
 
         private void TreeViewItem_Selected_4(object sender, RoutedEventArgs e) //Типы ПЗУ
         {
-
+            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMsType());
         }
 
         private void MenuItem_Click_6(object sender, RoutedEventArgs e) //Типы ПЗУ
@@ -188,9 +168,39 @@ namespace TONAR.Res.Pages
             Adding.AddDriveType();
         }
 
-        private void TreeViewItem_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e) //Поиск
+        {
+            
+        }
+
+        private void TreeViewItem_MouseDoubleClick_2(object sender, System.Windows.Input.MouseButtonEventArgs e) //Модели процессоров
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Models());
+        }
+
+        private void TreeViewItem_MouseDoubleClick_3(object sender, System.Windows.Input.MouseButtonEventArgs e) //Номера процессоров
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Numbers());
+        }
+
+        private void TreeViewItem_MouseDoubleClick_4(object sender, System.Windows.Input.MouseButtonEventArgs e) //Сокеты
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Sockets());
+        }
+
+        private void TreeViewItem_Selected_3(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMsType());
+        }
+
+        private void miProcessorsWatch_Click(object sender, RoutedEventArgs e)
         {
             Code.StaticVisibility.f.Navigate(new Hardware.Processors.Processors());
+        }
+
+        private void miProcessorsVendorsWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Manufacturers());
         }
     }
 }

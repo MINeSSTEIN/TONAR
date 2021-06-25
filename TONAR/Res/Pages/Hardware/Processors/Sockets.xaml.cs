@@ -10,7 +10,6 @@ namespace TONAR.Res.Pages.Hardware.Processors
     /// </summary>
     public partial class Sockets : Page
     {
-        private DataGrid tmpGrid = new DataGrid();
         private List<Customs.Hardware.Processors.SocketView> socketsViews = new List<Customs.Hardware.Processors.SocketView>();
 
         public Sockets()
@@ -22,11 +21,9 @@ namespace TONAR.Res.Pages.Hardware.Processors
         public void LoadData()
         {
             Code.StaticVisibility.e.Sockets.Load();
-            tmpGrid.ItemsSource = Code.StaticVisibility.e.Sockets.Local.ToBindingList();
-
             try
             {
-                for (int i = 0; i < tmpGrid.Items.Count - 1; i++)
+                for (int i = 0; i < Code.StaticVisibility.e.Sockets.Local.Count; i++)
                 {
                     socketsViews.Add(new Customs.Hardware.Processors.SocketView());
                     socketsViews[i].lMain.Content = Code.StaticVisibility.e.Sockets.Local[i].Socket;
