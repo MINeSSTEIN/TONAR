@@ -158,11 +158,6 @@ namespace TONAR.Res.Pages
             Adding.AddBuilding();
         }
 
-        private void TreeViewItem_Selected_4(object sender, RoutedEventArgs e) //Типы ПЗУ
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMsType());
-        }
-
         private void MenuItem_Click_6(object sender, RoutedEventArgs e) //Типы ПЗУ
         {
             Adding.AddDriveType();
@@ -173,26 +168,6 @@ namespace TONAR.Res.Pages
             
         }
 
-        private void TreeViewItem_MouseDoubleClick_2(object sender, System.Windows.Input.MouseButtonEventArgs e) //Модели процессоров
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Models());
-        }
-
-        private void TreeViewItem_MouseDoubleClick_3(object sender, System.Windows.Input.MouseButtonEventArgs e) //Номера процессоров
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Numbers());
-        }
-
-        private void TreeViewItem_MouseDoubleClick_4(object sender, System.Windows.Input.MouseButtonEventArgs e) //Сокеты
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Sockets());
-        }
-
-        private void TreeViewItem_Selected_3(object sender, RoutedEventArgs e)
-        {
-            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMsType());
-        }
-
         private void miProcessorsWatch_Click(object sender, RoutedEventArgs e)
         {
             Code.StaticVisibility.f.Navigate(new Hardware.Processors.Processors());
@@ -201,6 +176,51 @@ namespace TONAR.Res.Pages
         private void miProcessorsVendorsWatch_Click(object sender, RoutedEventArgs e)
         {
             Code.StaticVisibility.f.Navigate(new Pages.Hardware.Processors.Manufacturers());
+        }
+
+        private void miProcessorModelsWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Models());
+        }
+
+        private void miProcessorNumbersWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Numbers());
+        }
+
+        private void miSocketsWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Processors.Sockets());
+        }
+
+        private void miROMsWatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miROMsModelsWatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miROMsTypesWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMsType());
+        }
+
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e) //Производители железа
+        {
+            Adding.AddManufacturer();
+        }
+
+        private void miManufacturersWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Hardware.Manufacturers());
+        }
+
+        private void MenuItem_Click_8(object sender, RoutedEventArgs e) //ROMs
+        {
+            Adding.AddROM();
         }
     }
 }

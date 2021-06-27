@@ -82,6 +82,9 @@
     <Compile Include="Res\Code\Functional\Common.cs" />
     <Compile Include="Res\Code\Functional\Processors\Adding.cs" />
     <Compile Include="Res\Code\StaticVisibility.cs" />
+    <Compile Include="Res\Customs\Hardware\ManufacturersView.xaml.cs">
+      <DependentUpon>ManufacturersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml.cs">
       <DependentUpon>ProcessorsManufacturersView.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
     </Compile>
     <Compile Include="Res\Customs\Hardware\ROMs\ROMsTypesView.xaml.cs">
       <DependentUpon>ROMsTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Customs\Hardware\ROMs\ROMsView.xaml.cs">
+      <DependentUpon>ROMsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Entities\Buildings.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -196,8 +202,14 @@
     <Compile Include="Res\Entities\V_ProcessorsStandart.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Res\Pages\Hardware\Drives\ROMs.xaml.cs">
+      <DependentUpon>ROMs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Pages\Hardware\Drives\ROMsType.xaml.cs">
       <DependentUpon>ROMsType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Pages\Hardware\Manufacturers.xaml.cs">
+      <DependentUpon>Manufacturers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Pages\Hardware\Processors\Manufacturers.xaml.cs">
       <DependentUpon>Manufacturers.xaml</DependentUpon>
@@ -220,8 +232,14 @@
     <Compile Include="Res\Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Windows\Hardware\Drives\ROMsAdding.xaml.cs">
+      <DependentUpon>ROMsAdding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml.cs">
       <DependentUpon>ROMsTypeAdding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Windows\Hardware\ManufacturerAdding.xaml.cs">
+      <DependentUpon>ManufacturerAdding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Windows\Hardware\Processors\ManufacturerAdding.xaml.cs">
       <DependentUpon>ManufacturerAdding.xaml</DependentUpon>
@@ -256,6 +274,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Res\Customs\Hardware\ManufacturersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,7 +302,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\Customs\Hardware\ROMs\ROMsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Pages\Hardware\Drives\ROMs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Pages\Hardware\Drives\ROMsType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Pages\Hardware\Manufacturers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,7 +346,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\Windows\Hardware\Drives\ROMsAdding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Windows\Hardware\ManufacturerAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

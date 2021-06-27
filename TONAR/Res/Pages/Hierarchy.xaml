@@ -49,19 +49,21 @@
                             </TreeViewItem>
                             
                             
-                            <TreeViewItem Header="Модели" MouseDoubleClick="TreeViewItem_MouseDoubleClick_2">
+                            <TreeViewItem Header="Модели">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click_1"></MenuItem>
+                                        <MenuItem x:Name="miProcessorModelsWatch" Header="Посмотреть" Click="miProcessorModelsWatch_Click"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
                             
                             
-                            <TreeViewItem Header="Номера" MouseDoubleClick="TreeViewItem_MouseDoubleClick_3">
+                            <TreeViewItem Header="Номера">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Header="Добавить" Click="MenuItem_Click_2"></MenuItem>
+                                        <MenuItem x:Name="miProcessorNumbersWatch" Header="Посмотреть" Click="miProcessorNumbersWatch_Click"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                             </TreeViewItem>
@@ -69,10 +71,11 @@
 
 
                         <!--Сокеты-->
-                        <TreeViewItem Header="Сокеты" MouseDoubleClick="TreeViewItem_MouseDoubleClick_4">
+                        <TreeViewItem Header="Сокеты">
                             <TreeViewItem.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                    <MenuItem x:Name="miSocketsWatch" Header="Посмотреть" Click="miSocketsWatch_Click"></MenuItem>
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
                         </TreeViewItem>
@@ -83,26 +86,40 @@
                             <TreeViewItem.ContextMenu>
                                 <ContextMenu>
                                     <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                    <MenuItem x:Name="miROMsWatch" Header="Посмотреть" Click="miROMsWatch_Click"></MenuItem>
+
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
                             
                             
-                            <TreeViewItem Header="Модели ПЗУ" Selected="TreeViewItem_Selected_3" >
+                            <TreeViewItem Header="Модели ПЗУ">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Header="Добавить" Click="MenuItem_Click_3"></MenuItem>
+                                        <MenuItem Header="Добавить" Click="MenuItem_Click_8"></MenuItem>
+                                        <MenuItem x:Name="miROMsModelsWatch" Header="Посмотреть" Click="miROMsModelsWatch_Click"></MenuItem>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>
                                 
                                 
-                                <TreeViewItem Header="Типы ПЗУ" Selected="TreeViewItem_Selected_4" >
+                                <TreeViewItem Header="Типы ПЗУ">
                                     <TreeViewItem.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Добавить" Click="MenuItem_Click_6"></MenuItem>
+                                            <MenuItem x:Name="miROMsTypesWatch" Header="Посмотреть" Click="miROMsTypesWatch_Click"></MenuItem>
                                         </ContextMenu>
                                     </TreeViewItem.ContextMenu>
                                 </TreeViewItem>
                             </TreeViewItem>
+                        </TreeViewItem>
+
+                        <!--Производители железа-->
+                        <TreeViewItem Header="Производители">
+                            <TreeViewItem.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Добавить" Click="MenuItem_Click_7"></MenuItem>
+                                    <MenuItem x:Name="miManufacturersWatch" Header="Посмотреть" Click="miManufacturersWatch_Click"></MenuItem>
+                                </ContextMenu>
+                            </TreeViewItem.ContextMenu>
                         </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>

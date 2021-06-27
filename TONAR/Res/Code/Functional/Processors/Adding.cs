@@ -86,7 +86,38 @@ namespace TONAR.Res.Code.Functional.Processors
 
         public static void AddDriveType()
         {
+            Windows.Hardware.Drives.ROMsTypeAdding rta = new Windows.Hardware.Drives.ROMsTypeAdding();
+            rta.ShowInTaskbar = false;
+            rta.ShowDialog();
 
+            if(rta.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.Drives.ROMsType());
+            }
+        }
+
+        public static void AddManufacturer()
+        {
+            Windows.Hardware.ManufacturerAdding ma = new Windows.Hardware.ManufacturerAdding();
+            ma.ShowInTaskbar = false;
+            ma.ShowDialog();
+
+            if (ma.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.Manufacturers());
+            }
+        }
+
+        public static void AddROM()
+        {
+            Windows.Hardware.Drives.ROMsAdding ra = new Windows.Hardware.Drives.ROMsAdding();
+            ra.ShowInTaskbar = false;
+            ra.ShowDialog();
+
+            if(ra.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.Drives.ROMs());
+            }
         }
     }
 }

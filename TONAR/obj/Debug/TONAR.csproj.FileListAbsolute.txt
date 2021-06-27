@@ -65,3 +65,15 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsTypeAdding.g.cs
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMsType.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsTypeAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ManufacturersView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ROMs\ROMsView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMs.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Manufacturers.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\ManufacturerAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ManufacturersView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\ROMs\ROMsView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Drives\ROMs.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\Manufacturers.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\ManufacturerAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\Drives\ROMsAdding.baml
