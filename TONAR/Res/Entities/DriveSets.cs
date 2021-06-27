@@ -21,8 +21,8 @@ namespace TONAR.Res.Entities
         }
     
         public int id { get; set; }
-        public int idHDD { get; set; }
-        public Nullable<int> idSSD { get; set; }
+        public int D1 { get; set; }
+        public Nullable<int> D2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Computers> Computers { get; set; }

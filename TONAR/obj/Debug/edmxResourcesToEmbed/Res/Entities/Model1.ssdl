@@ -58,8 +58,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idHDD" Type="int" Nullable="false" />
-    <Property Name="idSSD" Type="int" />
+    <Property Name="D1" Type="int" Nullable="false" />
+    <Property Name="D2" Type="int" />
   </EntityType>
   <EntityType Name="DrivesTypes">
     <Key>
@@ -144,7 +144,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idHardwareManufacturer" Type="int" Nullable="false" />
-    <Property Name="idVolume" Type="int" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
     <Property Name="TickSpeed" Type="int" Nullable="false" />
     <Property Name="idType" Type="int" Nullable="false" />
     <Property Name="Model" Type="int" />
@@ -155,13 +155,6 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RAMVolumes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Volumes" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Sockets">
     <Key>
@@ -205,6 +198,20 @@
     <Property Name="idProcessorsVendors" Type="int" Nullable="false" />
     <Property Name="Volume" Type="int" Nullable="false" />
     <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.v_DrivesStandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_DrivesStandart">
+    <Key>
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Model" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.V_ProcessorsStandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -371,7 +378,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DriveSets">
-        <PropertyRef Name="idHDD" />
+        <PropertyRef Name="D1" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -383,7 +390,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DriveSets">
-        <PropertyRef Name="idSSD" />
+        <PropertyRef Name="D2" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -531,18 +538,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RAM_RAMVolumes">
-    <End Role="RAMVolumes" Type="Self.RAMVolumes" Multiplicity="1" />
-    <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RAMVolumes">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="RAM">
-        <PropertyRef Name="idVolume" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_SocketsAndVendors_ProcessorsVendors">
     <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
     <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
@@ -597,6 +592,12 @@
   </Function>
   <Function Name="ReturnDepartmentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnDriveTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="TypeName" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ReturnManufacturerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="MName" Type="varchar(max)" Mode="In" />
   </Function>
   <Function Name="ReturnProcessorMarkID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="ProcessorMark" Type="nvarchar" Mode="In" />
@@ -659,12 +660,19 @@
     <EntitySet Name="ProcessorsVendorsAndModels" EntityType="Self.ProcessorsVendorsAndModels" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sockets" EntityType="Self.Sockets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_DrivesStandart" EntityType="Self.v_DrivesStandart" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_DrivesStandart].[Volume] AS [Volume], 
+    [v_DrivesStandart].[Model] AS [Model], 
+    [v_DrivesStandart].[Type] AS [Type], 
+    [v_DrivesStandart].[Name] AS [Name]
+    FROM [dbo].[v_DrivesStandart] AS [v_DrivesStandart]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [V_ProcessorsStandart].[id] AS [id], 
@@ -777,10 +785,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_RAM_RAMTypes" Association="Self.FK_RAM_RAMTypes">
       <End Role="RAMTypes" EntitySet="RAMTypes" />
-      <End Role="RAM" EntitySet="RAM" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
-      <End Role="RAMVolumes" EntitySet="RAMVolumes" />
       <End Role="RAM" EntitySet="RAM" />
     </AssociationSet>
     <AssociationSet Name="FK_SocketsAndVendors_ProcessorsVendors" Association="Self.FK_SocketsAndVendors_ProcessorsVendors">

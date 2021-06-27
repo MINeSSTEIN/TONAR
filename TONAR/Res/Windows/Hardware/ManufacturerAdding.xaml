@@ -10,7 +10,7 @@
         ShowInTaskbar="False">
     <Grid>
         <Label Content="Введите номер процессора"></Label>
-        <TextBox x:Name="tbName" Margin="5,30,0,0" Width="185" MaxLength="8"></TextBox>
+        <TextBox x:Name="tbName" Margin="5,30,0,0" Width="185" MaxLength="50"></TextBox>
         <Button Click="btnAdd_Click" x:Name="btnAdd" Content="Добавить" Width="90" Margin="5,55,5,5"></Button>
         <Button Click="btnCancel_Click" x:Name="btnCancel" Content="Отмена" Width="90" Margin="100,55,5,5"></Button>
     </Grid>

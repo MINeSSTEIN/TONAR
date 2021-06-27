@@ -100,6 +100,15 @@
     <Compile Include="Res\Customs\Hardware\Processors\SocketView.xaml.cs">
       <DependentUpon>SocketView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Customs\Hardware\RAM\RAMsView.xaml.cs">
+      <DependentUpon>RAMsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Customs\Hardware\RAM\RAMTypesView.xaml.cs">
+      <DependentUpon>RAMTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Customs\Hardware\ROMs\ROMSetsView.xaml.cs">
+      <DependentUpon>ROMSetsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Res\Customs\Hardware\ROMs\ROMsTypesView.xaml.cs">
       <DependentUpon>ROMsTypesView.xaml</DependentUpon>
     </Compile>
@@ -175,9 +184,6 @@
     <Compile Include="Res\Entities\RAMTypes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Res\Entities\RAMVolumes.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Res\Entities\Sockets.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -199,7 +205,13 @@
     <Compile Include="Res\Entities\VideoAdapts.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Res\Entities\v_DrivesStandart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Res\Entities\V_ProcessorsStandart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Entities\v_ramstandart.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Res\Pages\Hardware\Drives\ROMs.xaml.cs">
@@ -225,6 +237,12 @@
     </Compile>
     <Compile Include="Res\Pages\Hardware\Processors\Sockets.xaml.cs">
       <DependentUpon>Sockets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Pages\Hardware\RAM\RAMs.xaml.cs">
+      <DependentUpon>RAMs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Pages\Hardware\RAM\RAMTypes.xaml.cs">
+      <DependentUpon>RAMTypes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Pages\Hierarchy.xaml.cs">
       <DependentUpon>Hierarchy.xaml</DependentUpon>
@@ -255,6 +273,9 @@
     </Compile>
     <Compile Include="Res\Windows\Hardware\Processors\SocketAdding.xaml.cs">
       <DependentUpon>SocketAdding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Res\Windows\Hardware\RAM\RAMTypeAdding.xaml.cs">
+      <DependentUpon>RAMTypeAdding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml.cs">
       <DependentUpon>BuildingAdding.xaml</DependentUpon>
@@ -298,6 +319,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\Customs\Hardware\RAM\RAMsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Customs\Hardware\RAM\RAMTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Customs\Hardware\ROMs\ROMSetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Customs\Hardware\ROMs\ROMsTypesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -338,6 +371,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Res\Pages\Hardware\RAM\RAMs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Pages\Hardware\RAM\RAMTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Res\Pages\Hierarchy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -375,6 +416,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Windows\Hardware\Processors\SocketAdding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Windows\Hardware\RAM\RAMTypeAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -121,6 +121,25 @@
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
                         </TreeViewItem>
+
+                        <!--ОЗУ-->
+                        <TreeViewItem Header="ОЗУ">
+                            <TreeViewItem.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem x:Name="miRAMAdd" Header="Добавить" Click="miRAMAdd_Click"></MenuItem>
+                                    <MenuItem x:Name="miRAMWatch" Header="Посмотреть" Click="miRAMWatch_Click"></MenuItem>
+                                </ContextMenu>
+                            </TreeViewItem.ContextMenu>
+                            <!--Производители железа-->
+                            <TreeViewItem Header="Типы ОЗУ">
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Добавить" Click="miRAMTypesAdd_Click" x:Name="miRAMTypesAdd"></MenuItem>
+                                        <MenuItem x:Name="miRAMTypesWatchWatch" Header="Посмотреть" Click="miRAMTypesWatchWatch_Click"></MenuItem>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                            </TreeViewItem>
+                        </TreeViewItem>
                     </TreeView>
                 </ScrollViewer>
             </TabItem>

@@ -22,7 +22,7 @@ namespace TONAR.Res.Entities
     
         public int id { get; set; }
         public int idHardwareManufacturer { get; set; }
-        public int idVolume { get; set; }
+        public int Volume { get; set; }
         public int TickSpeed { get; set; }
         public int idType { get; set; }
         public Nullable<int> Model { get; set; }
@@ -31,6 +31,5 @@ namespace TONAR.Res.Entities
         public virtual ICollection<Computers> Computers { get; set; }
         public virtual HardwareManufacturers HardwareManufacturers { get; set; }
         public virtual RAMTypes RAMTypes { get; set; }
-        public virtual RAMVolumes RAMVolumes { get; set; }
     }
 }

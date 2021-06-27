@@ -63,8 +63,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idHDD" Type="int" Nullable="false" />
-          <Property Name="idSSD" Type="int" />
+          <Property Name="D1" Type="int" Nullable="false" />
+          <Property Name="D2" Type="int" />
         </EntityType>
         <EntityType Name="DrivesTypes">
           <Key>
@@ -149,7 +149,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idHardwareManufacturer" Type="int" Nullable="false" />
-          <Property Name="idVolume" Type="int" Nullable="false" />
+          <Property Name="Volume" Type="int" Nullable="false" />
           <Property Name="TickSpeed" Type="int" Nullable="false" />
           <Property Name="idType" Type="int" Nullable="false" />
           <Property Name="Model" Type="int" />
@@ -160,13 +160,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RAMVolumes">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Volumes" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Sockets">
           <Key>
@@ -212,6 +205,20 @@
           <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.v_DrivesStandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_DrivesStandart">
+          <Key>
+            <PropertyRef Name="Volume" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Volume" Type="int" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.V_ProcessorsStandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="V_ProcessorsStandart">
           <Key>
@@ -235,6 +242,21 @@
           <Property Name="Mark" Type="nvarchar" MaxLength="8" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Socket" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.v_ramstandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_ramstandart">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Volume" />
+            <PropertyRef Name="TickSpeed" />
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Volume" Type="int" Nullable="false" />
+          <Property Name="TickSpeed" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="int" />
         </EntityType>
         <Association Name="FK_BuildingsAndDepartments_Buildings">
           <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
@@ -376,7 +398,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="DriveSets">
-              <PropertyRef Name="idHDD" />
+              <PropertyRef Name="D1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -388,7 +410,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="DriveSets">
-              <PropertyRef Name="idSSD" />
+              <PropertyRef Name="D2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -536,18 +558,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RAM_RAMVolumes">
-          <End Role="RAMVolumes" Type="Self.RAMVolumes" Multiplicity="1" />
-          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RAMVolumes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RAM">
-              <PropertyRef Name="idVolume" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SocketsAndVendors_ProcessorsVendors">
           <End Role="ProcessorsVendors" Type="Self.ProcessorsVendors" Multiplicity="1" />
           <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
@@ -603,6 +613,12 @@
         <Function Name="ReturnDepartmentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
           <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="ReturnDriveTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="TypeName" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ReturnManufacturerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="MName" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="ReturnProcessorMarkID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
           <Parameter Name="ProcessorMark" Type="nvarchar" Mode="In" />
         </Function>
@@ -611,6 +627,9 @@
         </Function>
         <Function Name="ReturnProcessorVendorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
           <Parameter Name="VendorName" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="ReturnRAMTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="ReturnSocketID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
           <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
@@ -664,12 +683,19 @@
           <EntitySet Name="ProcessorsVendorsAndModels" EntityType="Self.ProcessorsVendorsAndModels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sockets" EntityType="Self.Sockets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_DrivesStandart" EntityType="Self.v_DrivesStandart" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_DrivesStandart].[Volume] AS [Volume], 
+    [v_DrivesStandart].[Model] AS [Model], 
+    [v_DrivesStandart].[Type] AS [Type], 
+    [v_DrivesStandart].[Name] AS [Name]
+    FROM [dbo].[v_DrivesStandart] AS [v_DrivesStandart]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_ProcessorsStandart].[id] AS [id], 
@@ -683,6 +709,15 @@
     [V_ProcessorsStandart].[Name] AS [Name], 
     [V_ProcessorsStandart].[Socket] AS [Socket]
     FROM [dbo].[V_ProcessorsStandart] AS [V_ProcessorsStandart]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ramstandart" EntityType="Self.v_ramstandart" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_ramstandart].[Name] AS [Name], 
+    [v_ramstandart].[Volume] AS [Volume], 
+    [v_ramstandart].[TickSpeed] AS [TickSpeed], 
+    [v_ramstandart].[Type] AS [Type], 
+    [v_ramstandart].[model] AS [model]
+    FROM [dbo].[v_ramstandart] AS [v_ramstandart]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
             <End Role="Buildings" EntitySet="Buildings" />
@@ -784,10 +819,6 @@
             <End Role="RAMTypes" EntitySet="RAMTypes" />
             <End Role="RAM" EntitySet="RAM" />
           </AssociationSet>
-          <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
-            <End Role="RAMVolumes" EntitySet="RAMVolumes" />
-            <End Role="RAM" EntitySet="RAM" />
-          </AssociationSet>
           <AssociationSet Name="FK_SocketsAndVendors_ProcessorsVendors" Association="Self.FK_SocketsAndVendors_ProcessorsVendors">
             <End Role="ProcessorsVendors" EntitySet="ProcessorsVendors" />
             <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
@@ -884,8 +915,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idHDD" Type="Int32" Nullable="false" />
-          <Property Name="idSSD" Type="Int32" />
+          <Property Name="D1" Type="Int32" Nullable="false" />
+          <Property Name="D2" Type="Int32" />
           <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_DriveSets" FromRole="DriveSets" ToRole="Computers" />
           <NavigationProperty Name="Drives" Relationship="Self.FK_DriveSets_Drives" FromRole="DriveSets" ToRole="Drives" />
           <NavigationProperty Name="Drives1" Relationship="Self.FK_DriveSets_Drives1" FromRole="DriveSets" ToRole="Drives" />
@@ -999,14 +1030,13 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idHardwareManufacturer" Type="Int32" Nullable="false" />
-          <Property Name="idVolume" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
           <Property Name="TickSpeed" Type="Int32" Nullable="false" />
           <Property Name="idType" Type="Int32" Nullable="false" />
           <Property Name="Model" Type="Int32" />
           <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_RAM" FromRole="RAM" ToRole="Computers" />
           <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_RAM_HardwareManufacturers" FromRole="RAM" ToRole="HardwareManufacturers" />
           <NavigationProperty Name="RAMTypes" Relationship="Self.FK_RAM_RAMTypes" FromRole="RAM" ToRole="RAMTypes" />
-          <NavigationProperty Name="RAMVolumes" Relationship="Self.FK_RAM_RAMVolumes" FromRole="RAM" ToRole="RAMVolumes" />
         </EntityType>
         <EntityType Name="RAMTypes">
           <Key>
@@ -1015,14 +1045,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="RAM" Relationship="Self.FK_RAM_RAMTypes" FromRole="RAMTypes" ToRole="RAM" />
-        </EntityType>
-        <EntityType Name="RAMVolumes">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Volumes" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="RAM" Relationship="Self.FK_RAM_RAMVolumes" FromRole="RAMVolumes" ToRole="RAM" />
         </EntityType>
         <EntityType Name="Sockets">
           <Key>
@@ -1054,6 +1076,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="VideoAdapts">
           <Key>
             <PropertyRef Name="id" />
@@ -1066,6 +1096,41 @@
           <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_VideoAdapts" FromRole="VideoAdapts" ToRole="Computers" />
           <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_VideoAdapts_HardwareManufacturers" FromRole="VideoAdapts" ToRole="HardwareManufacturers" />
           <NavigationProperty Name="ProcessorsVendors" Relationship="Self.FK_VideoAdapts_ProcessorsVendors" FromRole="VideoAdapts" ToRole="ProcessorsVendors" />
+        </EntityType>
+        <EntityType Name="v_DrivesStandart">
+          <Key>
+            <PropertyRef Name="Volume" />
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_ProcessorsStandart">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="CacheL1" />
+            <PropertyRef Name="CacheL2" />
+            <PropertyRef Name="Tickspeed" />
+            <PropertyRef Name="vName" />
+            <PropertyRef Name="Picture" />
+            <PropertyRef Name="Mark" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Socket" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="CacheL1" Type="Int32" Nullable="false" />
+          <Property Name="CacheL2" Type="Int32" Nullable="false" />
+          <Property Name="CacheL3" Type="Int32" />
+          <Property Name="Tickspeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="vName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mark" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Socket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_BuildingsAndDepartments_Buildings">
           <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
@@ -1207,7 +1272,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="DriveSets">
-              <PropertyRef Name="idHDD" />
+              <PropertyRef Name="D1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1219,7 +1284,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="DriveSets">
-              <PropertyRef Name="idSSD" />
+              <PropertyRef Name="D2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1403,18 +1468,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RAM_RAMVolumes">
-          <End Role="RAMVolumes" Type="Self.RAMVolumes" Multiplicity="1" />
-          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RAMVolumes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RAM">
-              <PropertyRef Name="idVolume" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SocketsAndVendors_Sockets">
           <End Role="Sockets" Type="Self.Sockets" Multiplicity="1" />
           <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
@@ -1427,7 +1480,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TONAR_PCs_DBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TONAR_PCs_DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Buildings" EntityType="Self.Buildings" />
           <EntitySet Name="BuildingsAndDepartments" EntityType="Self.BuildingsAndDepartments" />
           <EntitySet Name="Computers" EntityType="Self.Computers" />
@@ -1446,11 +1499,13 @@
           <EntitySet Name="ProcessorsVendorsAndModels" EntityType="Self.ProcessorsVendorsAndModels" />
           <EntitySet Name="RAM" EntityType="Self.RAM" />
           <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" />
-          <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" />
           <EntitySet Name="Sockets" EntityType="Self.Sockets" />
           <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" />
+          <EntitySet Name="v_DrivesStandart" EntityType="Self.v_DrivesStandart" />
+          <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" />
           <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
             <End Role="Buildings" EntitySet="Buildings" />
             <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />
@@ -1563,10 +1618,6 @@
             <End Role="RAMTypes" EntitySet="RAMTypes" />
             <End Role="RAM" EntitySet="RAM" />
           </AssociationSet>
-          <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
-            <End Role="RAMVolumes" EntitySet="RAMVolumes" />
-            <End Role="RAM" EntitySet="RAM" />
-          </AssociationSet>
           <AssociationSet Name="FK_SocketsAndVendors_Sockets" Association="Self.FK_SocketsAndVendors_Sockets">
             <End Role="Sockets" EntitySet="Sockets" />
             <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
@@ -1601,8 +1652,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Users" EntityType="TONAR_PCs_DBModel.Users" />
-          <EntitySet Name="V_ProcessorsStandart" EntityType="TONAR_PCs_DBModel.V_ProcessorsStandart" />
+          <EntitySet Name="v_ramstandart" EntityType="TONAR_PCs_DBModel.v_ramstandart" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1615,43 +1665,25 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Users">
+        <EntityType Name="v_ramstandart">
           <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="V_ProcessorsStandart">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="CacheL1" />
-            <PropertyRef Name="CacheL2" />
-            <PropertyRef Name="Tickspeed" />
-            <PropertyRef Name="vName" />
-            <PropertyRef Name="Picture" />
-            <PropertyRef Name="Mark" />
             <PropertyRef Name="Name" />
-            <PropertyRef Name="Socket" />
+            <PropertyRef Name="Volume" />
+            <PropertyRef Name="TickSpeed" />
+            <PropertyRef Name="Type" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="CacheL1" Type="Int32" Nullable="false" />
-          <Property Name="CacheL2" Type="Int32" Nullable="false" />
-          <Property Name="CacheL3" Type="Int32" />
-          <Property Name="Tickspeed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="vName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Mark" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Socket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="TickSpeed" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TONAR_PCs_DBModelContainer" CdmEntityContainer="TONAR_PCs_DBEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TONAR_PCs_DBModelContainer" CdmEntityContainer="TONAR_PCs_DBEntities">
           <EntitySetMapping Name="Buildings">
             <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Buildings">
               <MappingFragment StoreEntitySet="Buildings">
@@ -1715,8 +1747,8 @@
             <EntityTypeMapping TypeName="TONAR_PCs_DBModel.DriveSets">
               <MappingFragment StoreEntitySet="DriveSets">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idHDD" ColumnName="idHDD" />
-                <ScalarProperty Name="idSSD" ColumnName="idSSD" />
+                <ScalarProperty Name="D1" ColumnName="D1" />
+                <ScalarProperty Name="D2" ColumnName="D2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1811,7 +1843,7 @@
               <MappingFragment StoreEntitySet="RAM">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idHardwareManufacturer" ColumnName="idHardwareManufacturer" />
-                <ScalarProperty Name="idVolume" ColumnName="idVolume" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="TickSpeed" ColumnName="TickSpeed" />
                 <ScalarProperty Name="idType" ColumnName="idType" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
@@ -1823,14 +1855,6 @@
               <MappingFragment StoreEntitySet="RAMTypes">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RAMVolumes">
-            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.RAMVolumes">
-              <MappingFragment StoreEntitySet="RAMVolumes">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Volumes" ColumnName="Volumes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1862,6 +1886,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VideoAdapts">
             <EntityTypeMapping TypeName="TONAR_PCs_DBModel.VideoAdapts">
               <MappingFragment StoreEntitySet="VideoAdapts">
@@ -1870,6 +1903,32 @@
                 <ScalarProperty Name="idProcessorsVendors" ColumnName="idProcessorsVendors" />
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_DrivesStandart">
+            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.v_DrivesStandart">
+              <MappingFragment StoreEntitySet="v_DrivesStandart">
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ProcessorsStandart">
+            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.V_ProcessorsStandart">
+              <MappingFragment StoreEntitySet="V_ProcessorsStandart">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
+                <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
+                <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
+                <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
+                <ScalarProperty Name="vName" ColumnName="vName" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Socket" ColumnName="Socket" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1897,28 +1956,14 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище TONAR_PCs_DBModel.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="V_ProcessorsStandart">
-            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.V_ProcessorsStandart">
-              <MappingFragment StoreEntitySet="V_ProcessorsStandart">
-                <ScalarProperty Name="Socket" ColumnName="Socket" />
+          <EntitySetMapping Name="v_ramstandart">
+            <EntityTypeMapping TypeName="TONAR_PCs_DBModel.v_ramstandart">
+              <MappingFragment StoreEntitySet="v_ramstandart">
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TickSpeed" ColumnName="TickSpeed" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Mark" ColumnName="Mark" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
-                <ScalarProperty Name="vName" ColumnName="vName" />
-                <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
-                <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
-                <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
-                <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

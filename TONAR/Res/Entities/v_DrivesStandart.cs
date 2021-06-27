@@ -12,18 +12,11 @@ namespace TONAR.Res.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class RAMVolumes
+    public partial class v_DrivesStandart
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RAMVolumes()
-        {
-            this.RAM = new HashSet<RAM>();
-        }
-    
-        public int id { get; set; }
-        public int Volumes { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RAM> RAM { get; set; }
+        public int Volume { get; set; }
+        public string Model { get; set; }
+        public string Type { get; set; }
+        public string Name { get; set; }
     }
 }

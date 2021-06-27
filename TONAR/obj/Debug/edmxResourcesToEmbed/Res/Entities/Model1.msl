@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище TONAR_PCs_DBModelContainer" CdmEntityContainer="TONAR_PCs_DBEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TONAR_PCs_DBModelContainer" CdmEntityContainer="TONAR_PCs_DBEntities">
     <EntitySetMapping Name="Buildings">
       <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Buildings">
         <MappingFragment StoreEntitySet="Buildings">
@@ -64,8 +64,8 @@
       <EntityTypeMapping TypeName="TONAR_PCs_DBModel.DriveSets">
         <MappingFragment StoreEntitySet="DriveSets">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idHDD" ColumnName="idHDD" />
-          <ScalarProperty Name="idSSD" ColumnName="idSSD" />
+          <ScalarProperty Name="D1" ColumnName="D1" />
+          <ScalarProperty Name="D2" ColumnName="D2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -160,7 +160,7 @@
         <MappingFragment StoreEntitySet="RAM">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idHardwareManufacturer" ColumnName="idHardwareManufacturer" />
-          <ScalarProperty Name="idVolume" ColumnName="idVolume" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
           <ScalarProperty Name="TickSpeed" ColumnName="TickSpeed" />
           <ScalarProperty Name="idType" ColumnName="idType" />
           <ScalarProperty Name="Model" ColumnName="Model" />
@@ -172,14 +172,6 @@
         <MappingFragment StoreEntitySet="RAMTypes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Type" ColumnName="Type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RAMVolumes">
-      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.RAMVolumes">
-        <MappingFragment StoreEntitySet="RAMVolumes">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Volumes" ColumnName="Volumes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -211,6 +203,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="VideoAdapts">
       <EntityTypeMapping TypeName="TONAR_PCs_DBModel.VideoAdapts">
         <MappingFragment StoreEntitySet="VideoAdapts">
@@ -219,6 +220,32 @@
           <ScalarProperty Name="idProcessorsVendors" ColumnName="idProcessorsVendors" />
           <ScalarProperty Name="Volume" ColumnName="Volume" />
           <ScalarProperty Name="Model" ColumnName="Model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_DrivesStandart">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.v_DrivesStandart">
+        <MappingFragment StoreEntitySet="v_DrivesStandart">
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_ProcessorsStandart">
+      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.V_ProcessorsStandart">
+        <MappingFragment StoreEntitySet="V_ProcessorsStandart">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
+          <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
+          <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
+          <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
+          <ScalarProperty Name="vName" ColumnName="vName" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Socket" ColumnName="Socket" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -246,30 +273,5 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище TONAR_PCs_DBModel.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище TONAR_PCs_DBModel.sp_upgraddiagrams" />
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="V_ProcessorsStandart">
-      <EntityTypeMapping TypeName="TONAR_PCs_DBModel.V_ProcessorsStandart">
-        <MappingFragment StoreEntitySet="V_ProcessorsStandart">
-          <ScalarProperty Name="Socket" ColumnName="Socket" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Mark" ColumnName="Mark" />
-          <ScalarProperty Name="Picture" ColumnName="Picture" />
-          <ScalarProperty Name="vName" ColumnName="vName" />
-          <ScalarProperty Name="Tickspeed" ColumnName="Tickspeed" />
-          <ScalarProperty Name="CacheL3" ColumnName="CacheL3" />
-          <ScalarProperty Name="CacheL2" ColumnName="CacheL2" />
-          <ScalarProperty Name="CacheL1" ColumnName="CacheL1" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

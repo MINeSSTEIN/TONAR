@@ -119,5 +119,17 @@ namespace TONAR.Res.Code.Functional.Processors
                 StaticVisibility.f.Navigate(new Pages.Hardware.Drives.ROMs());
             }
         }
+
+        public static void AddRAMType()
+        {
+            Windows.Hardware.RAM.RAMTypeAdding rta = new Windows.Hardware.RAM.RAMTypeAdding();
+            rta.ShowInTaskbar = true;
+            rta.ShowDialog();
+
+            if(rta.DialogResult == true)
+            {
+                StaticVisibility.f.Navigate(new Pages.Hardware.RAM.RAMTypes());
+            }
+        }
     }
 }

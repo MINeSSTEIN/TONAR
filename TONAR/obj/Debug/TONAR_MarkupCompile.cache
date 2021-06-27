@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\mines\source\repos\TONAR\TONAR\App.xaml
-297597404
+33239951037
 2876172293
-66410690447
+70919931596
 18-895798998
-MainWindow.xaml;Res\Customs\Hardware\ManufacturersView.xaml;Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml;Res\Customs\Hardware\Processors\ProcessorsModelsView.xaml;Res\Customs\Hardware\Processors\ProcessorsNumbersView.xaml;Res\Customs\Hardware\Processors\ProcessorsView.xaml;Res\Customs\Hardware\Processors\SocketView.xaml;Res\Customs\Hardware\ROMs\ROMsTypesView.xaml;Res\Customs\Hardware\ROMs\ROMsView.xaml;Res\Pages\Hardware\Drives\ROMs.xaml;Res\Pages\Hardware\Drives\ROMsType.xaml;Res\Pages\Hardware\Manufacturers.xaml;Res\Pages\Hardware\Processors\Manufacturers.xaml;Res\Pages\Hardware\Processors\Models.xaml;Res\Pages\Hardware\Processors\Numbers.xaml;Res\Pages\Hardware\Processors\Processors.xaml;Res\Pages\Hardware\Processors\Sockets.xaml;Res\Pages\Hierarchy.xaml;Res\Pages\Login.xaml;Res\Windows\Hardware\Drives\ROMsAdding.xaml;Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml;Res\Windows\Hardware\ManufacturerAdding.xaml;Res\Windows\Hardware\Processors\ManufacturerAdding.xaml;Res\Windows\Hardware\Processors\ModelAdding.xaml;Res\Windows\Hardware\Processors\NumberAdding.xaml;Res\Windows\Hardware\Processors\ProcessorAdding.xaml;Res\Windows\Hardware\Processors\SocketAdding.xaml;Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml;Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml;
+MainWindow.xaml;Res\Customs\Hardware\ManufacturersView.xaml;Res\Customs\Hardware\Processors\ProcessorsManufacturersView.xaml;Res\Customs\Hardware\Processors\ProcessorsModelsView.xaml;Res\Customs\Hardware\Processors\ProcessorsNumbersView.xaml;Res\Customs\Hardware\Processors\ProcessorsView.xaml;Res\Customs\Hardware\Processors\SocketView.xaml;Res\Customs\Hardware\RAM\RAMTypesView.xaml;Res\Customs\Hardware\ROMs\ROMSetsView.xaml;Res\Customs\Hardware\ROMs\ROMsTypesView.xaml;Res\Customs\Hardware\ROMs\ROMsView.xaml;Res\Pages\Hardware\Drives\ROMs.xaml;Res\Pages\Hardware\Drives\ROMsType.xaml;Res\Pages\Hardware\Manufacturers.xaml;Res\Pages\Hardware\Processors\Manufacturers.xaml;Res\Pages\Hardware\Processors\Models.xaml;Res\Pages\Hardware\Processors\Numbers.xaml;Res\Pages\Hardware\Processors\Processors.xaml;Res\Pages\Hardware\Processors\Sockets.xaml;Res\Pages\Hardware\RAM\RAMTypes.xaml;Res\Pages\Hierarchy.xaml;Res\Pages\Login.xaml;Res\Windows\Hardware\Drives\ROMsAdding.xaml;Res\Windows\Hardware\Drives\ROMsTypeAdding.xaml;Res\Windows\Hardware\ManufacturerAdding.xaml;Res\Windows\Hardware\Processors\ManufacturerAdding.xaml;Res\Windows\Hardware\Processors\ModelAdding.xaml;Res\Windows\Hardware\Processors\NumberAdding.xaml;Res\Windows\Hardware\Processors\ProcessorAdding.xaml;Res\Windows\Hardware\Processors\SocketAdding.xaml;Res\Windows\Hardware\RAM\RAMTypeAdding.xaml;Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml;Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml;
 
 False
 

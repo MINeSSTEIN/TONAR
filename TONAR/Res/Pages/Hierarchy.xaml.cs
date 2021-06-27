@@ -200,7 +200,7 @@ namespace TONAR.Res.Pages
 
         private void miROMsModelsWatch_Click(object sender, RoutedEventArgs e)
         {
-
+            Code.StaticVisibility.f.Navigate(new Hardware.Drives.ROMs());
         }
 
         private void miROMsTypesWatch_Click(object sender, RoutedEventArgs e)
@@ -221,6 +221,26 @@ namespace TONAR.Res.Pages
         private void MenuItem_Click_8(object sender, RoutedEventArgs e) //ROMs
         {
             Adding.AddROM();
+        }
+
+        private void miRAMWatch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miRAMAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void miRAMTypesWatchWatch_Click(object sender, RoutedEventArgs e)
+        {
+            Code.StaticVisibility.f.Navigate(new Pages.Hardware.RAM.RAMTypes());
+        }
+
+        private void miRAMTypesAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Adding.AddRAMType();
         }
     }
 }

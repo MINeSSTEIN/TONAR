@@ -75,8 +75,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idHDD" Type="Int32" Nullable="false" />
-    <Property Name="idSSD" Type="Int32" />
+    <Property Name="D1" Type="Int32" Nullable="false" />
+    <Property Name="D2" Type="Int32" />
     <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_DriveSets" FromRole="DriveSets" ToRole="Computers" />
     <NavigationProperty Name="Drives" Relationship="Self.FK_DriveSets_Drives" FromRole="DriveSets" ToRole="Drives" />
     <NavigationProperty Name="Drives1" Relationship="Self.FK_DriveSets_Drives1" FromRole="DriveSets" ToRole="Drives" />
@@ -190,14 +190,13 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idHardwareManufacturer" Type="Int32" Nullable="false" />
-    <Property Name="idVolume" Type="Int32" Nullable="false" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
     <Property Name="TickSpeed" Type="Int32" Nullable="false" />
     <Property Name="idType" Type="Int32" Nullable="false" />
     <Property Name="Model" Type="Int32" />
     <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_RAM" FromRole="RAM" ToRole="Computers" />
     <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_RAM_HardwareManufacturers" FromRole="RAM" ToRole="HardwareManufacturers" />
     <NavigationProperty Name="RAMTypes" Relationship="Self.FK_RAM_RAMTypes" FromRole="RAM" ToRole="RAMTypes" />
-    <NavigationProperty Name="RAMVolumes" Relationship="Self.FK_RAM_RAMVolumes" FromRole="RAM" ToRole="RAMVolumes" />
   </EntityType>
   <EntityType Name="RAMTypes">
     <Key>
@@ -206,14 +205,6 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="RAM" Relationship="Self.FK_RAM_RAMTypes" FromRole="RAMTypes" ToRole="RAM" />
-  </EntityType>
-  <EntityType Name="RAMVolumes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Volumes" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="RAM" Relationship="Self.FK_RAM_RAMVolumes" FromRole="RAMVolumes" ToRole="RAM" />
   </EntityType>
   <EntityType Name="Sockets">
     <Key>
@@ -245,6 +236,14 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="VideoAdapts">
     <Key>
       <PropertyRef Name="id" />
@@ -257,6 +256,41 @@
     <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_VideoAdapts" FromRole="VideoAdapts" ToRole="Computers" />
     <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_VideoAdapts_HardwareManufacturers" FromRole="VideoAdapts" ToRole="HardwareManufacturers" />
     <NavigationProperty Name="ProcessorsVendors" Relationship="Self.FK_VideoAdapts_ProcessorsVendors" FromRole="VideoAdapts" ToRole="ProcessorsVendors" />
+  </EntityType>
+  <EntityType Name="v_DrivesStandart">
+    <Key>
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Model" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="V_ProcessorsStandart">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CacheL1" />
+      <PropertyRef Name="CacheL2" />
+      <PropertyRef Name="Tickspeed" />
+      <PropertyRef Name="vName" />
+      <PropertyRef Name="Picture" />
+      <PropertyRef Name="Mark" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Socket" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="CacheL1" Type="Int32" Nullable="false" />
+    <Property Name="CacheL2" Type="Int32" Nullable="false" />
+    <Property Name="CacheL3" Type="Int32" />
+    <Property Name="Tickspeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="vName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mark" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Socket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_BuildingsAndDepartments_Buildings">
     <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
@@ -398,7 +432,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DriveSets">
-        <PropertyRef Name="idHDD" />
+        <PropertyRef Name="D1" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -410,7 +444,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DriveSets">
-        <PropertyRef Name="idSSD" />
+        <PropertyRef Name="D2" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -594,18 +628,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RAM_RAMVolumes">
-    <End Role="RAMVolumes" Type="Self.RAMVolumes" Multiplicity="1" />
-    <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RAMVolumes">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="RAM">
-        <PropertyRef Name="idVolume" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_SocketsAndVendors_Sockets">
     <End Role="Sockets" Type="Self.Sockets" Multiplicity="1" />
     <End Role="SocketsAndVendors" Type="Self.SocketsAndVendors" Multiplicity="*" />
@@ -618,7 +640,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="TONAR_PCs_DBEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TONAR_PCs_DBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Buildings" EntityType="Self.Buildings" />
     <EntitySet Name="BuildingsAndDepartments" EntityType="Self.BuildingsAndDepartments" />
     <EntitySet Name="Computers" EntityType="Self.Computers" />
@@ -637,11 +659,13 @@
     <EntitySet Name="ProcessorsVendorsAndModels" EntityType="Self.ProcessorsVendorsAndModels" />
     <EntitySet Name="RAM" EntityType="Self.RAM" />
     <EntitySet Name="RAMTypes" EntityType="Self.RAMTypes" />
-    <EntitySet Name="RAMVolumes" EntityType="Self.RAMVolumes" />
     <EntitySet Name="Sockets" EntityType="Self.Sockets" />
     <EntitySet Name="SocketsAndVendors" EntityType="Self.SocketsAndVendors" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" />
+    <EntitySet Name="v_DrivesStandart" EntityType="Self.v_DrivesStandart" />
+    <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" />
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
       <End Role="Buildings" EntitySet="Buildings" />
       <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />
@@ -754,10 +778,6 @@
       <End Role="RAMTypes" EntitySet="RAMTypes" />
       <End Role="RAM" EntitySet="RAM" />
     </AssociationSet>
-    <AssociationSet Name="FK_RAM_RAMVolumes" Association="Self.FK_RAM_RAMVolumes">
-      <End Role="RAMVolumes" EntitySet="RAMVolumes" />
-      <End Role="RAM" EntitySet="RAM" />
-    </AssociationSet>
     <AssociationSet Name="FK_SocketsAndVendors_Sockets" Association="Self.FK_SocketsAndVendors_Sockets">
       <End Role="Sockets" EntitySet="Sockets" />
       <End Role="SocketsAndVendors" EntitySet="SocketsAndVendors" />
@@ -792,8 +812,6 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
-    <EntitySet Name="Users" EntityType="TONAR_PCs_DBModel.Users" />
-    <EntitySet Name="V_ProcessorsStandart" EntityType="TONAR_PCs_DBModel.V_ProcessorsStandart" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -806,35 +824,4 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="V_ProcessorsStandart">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="CacheL1" />
-      <PropertyRef Name="CacheL2" />
-      <PropertyRef Name="Tickspeed" />
-      <PropertyRef Name="vName" />
-      <PropertyRef Name="Picture" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Socket" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="CacheL1" Type="Int32" Nullable="false" />
-    <Property Name="CacheL2" Type="Int32" Nullable="false" />
-    <Property Name="CacheL3" Type="Int32" />
-    <Property Name="Tickspeed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="vName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Mark" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Socket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>

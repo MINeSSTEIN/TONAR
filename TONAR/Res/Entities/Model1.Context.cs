@@ -15,10 +15,10 @@ namespace TONAR.Res.Entities
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class TONAR_PCs_DBEntities1 : DbContext
+    public partial class TONAR_PCs_DBEntities : DbContext
     {
-        public TONAR_PCs_DBEntities1()
-            : base("name=TONAR_PCs_DBEntities1")
+        public TONAR_PCs_DBEntities()
+            : base("name=TONAR_PCs_DBEntities")
         {
         }
     
@@ -45,13 +45,14 @@ namespace TONAR.Res.Entities
         public virtual DbSet<ProcessorsVendorsAndModels> ProcessorsVendorsAndModels { get; set; }
         public virtual DbSet<RAM> RAM { get; set; }
         public virtual DbSet<RAMTypes> RAMTypes { get; set; }
-        public virtual DbSet<RAMVolumes> RAMVolumes { get; set; }
         public virtual DbSet<Sockets> Sockets { get; set; }
         public virtual DbSet<SocketsAndVendors> SocketsAndVendors { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<VideoAdapts> VideoAdapts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<VideoAdapts> VideoAdapts { get; set; }
+        public virtual DbSet<v_DrivesStandart> v_DrivesStandart { get; set; }
         public virtual DbSet<V_ProcessorsStandart> V_ProcessorsStandart { get; set; }
+        public virtual DbSet<v_ramstandart> v_ramstandart { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
