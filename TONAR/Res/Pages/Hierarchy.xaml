@@ -130,7 +130,7 @@
                                     <MenuItem x:Name="miRAMWatch" Header="Посмотреть" Click="miRAMWatch_Click"></MenuItem>
                                 </ContextMenu>
                             </TreeViewItem.ContextMenu>
-                            <!--Производители железа-->
+                            <!--Типы ОЗУ-->
                             <TreeViewItem Header="Типы ОЗУ">
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>

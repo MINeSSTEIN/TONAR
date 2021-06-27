@@ -123,13 +123,22 @@ namespace TONAR.Res.Code.Functional.Processors
         public static void AddRAMType()
         {
             Windows.Hardware.RAM.RAMTypeAdding rta = new Windows.Hardware.RAM.RAMTypeAdding();
-            rta.ShowInTaskbar = true;
+            rta.ShowInTaskbar = false;
             rta.ShowDialog();
 
             if(rta.DialogResult == true)
             {
                 StaticVisibility.f.Navigate(new Pages.Hardware.RAM.RAMTypes());
             }
+        }
+
+        public static void AddPC()
+        {
+            Windows.Hierarchy.Buildings.Departments.PCs.PCAdding pa = new Windows.Hierarchy.Buildings.Departments.PCs.PCAdding();
+            pa.ShowInTaskbar = false;
+            pa.ShowDialog();
+
+
         }
     }
 }

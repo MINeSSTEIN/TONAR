@@ -147,7 +147,7 @@
     <Property Name="Volume" Type="int" Nullable="false" />
     <Property Name="TickSpeed" Type="int" Nullable="false" />
     <Property Name="idType" Type="int" Nullable="false" />
-    <Property Name="Model" Type="int" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="RAMTypes">
     <Key>
@@ -237,6 +237,21 @@
     <Property Name="Mark" Type="nvarchar" MaxLength="8" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Socket" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "TONAR_PCs_DB.dbo.v_ramstandart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_ramstandart">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="TickSpeed" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Volume" Type="int" Nullable="false" />
+    <Property Name="TickSpeed" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_BuildingsAndDepartments_Buildings">
     <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
@@ -608,6 +623,9 @@
   <Function Name="ReturnProcessorVendorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="VendorName" Type="varchar(max)" Mode="In" />
   </Function>
+  <Function Name="ReturnRAMTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="ReturnSocketID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
     <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
   </Function>
@@ -686,6 +704,15 @@
     [V_ProcessorsStandart].[Name] AS [Name], 
     [V_ProcessorsStandart].[Socket] AS [Socket]
     FROM [dbo].[V_ProcessorsStandart] AS [V_ProcessorsStandart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_ramstandart" EntityType="Self.v_ramstandart" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_ramstandart].[Name] AS [Name], 
+    [v_ramstandart].[Volume] AS [Volume], 
+    [v_ramstandart].[TickSpeed] AS [TickSpeed], 
+    [v_ramstandart].[Type] AS [Type], 
+    [v_ramstandart].[Model] AS [Model]
+    FROM [dbo].[v_ramstandart] AS [v_ramstandart]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
       <End Role="Buildings" EntitySet="Buildings" />

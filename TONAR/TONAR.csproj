@@ -283,6 +283,9 @@
     <Compile Include="Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml.cs">
       <DependentUpon>DepartmentAdding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Res\Windows\Hierarchy\Buildings\Departments\PCs\PCAdding.xaml.cs">
+      <DependentUpon>PCAdding.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -428,6 +431,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Res\Windows\Hierarchy\Buildings\Departments\PCs\PCAdding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

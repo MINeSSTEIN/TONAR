@@ -7,6 +7,9 @@ FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\Processors\Process
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\Processors\ProcessorsNumbersView.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\Processors\ProcessorsView.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\Processors\SocketView.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\RAM\RAMsView.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\RAM\RAMTypesView.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\ROMs\ROMSetsView.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\ROMs\ROMsTypesView.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\ROMs\ROMsView.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\Drives\ROMs.xaml;;
@@ -17,6 +20,8 @@ FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\Processors\Models.xa
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\Processors\Numbers.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\Processors\Processors.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\Processors\Sockets.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\RAM\RAMs.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\RAM\RAMTypes.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hierarchy.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Login.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\Drives\ROMsAdding.xaml;;
@@ -27,10 +32,8 @@ FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\Processors\ModelAd
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\Processors\NumberAdding.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\Processors\ProcessorAdding.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\Processors\SocketAdding.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\RAM\RAMTypeAdding.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hierarchy\Buildings\BuildingAdding.xaml;;
 FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hierarchy\Buildings\Departments\DepartmentAdding.xaml;;
-FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\ROMs\ROMSetsView.xaml;;
-FC:\Users\mines\source\repos\TONAR\TONAR\Res\Customs\Hardware\RAM\RAMTypesView.xaml;;
-FC:\Users\mines\source\repos\TONAR\TONAR\Res\Pages\Hardware\RAM\RAMTypes.xaml;;
-FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hardware\RAM\RAMTypeAdding.xaml;;
+FC:\Users\mines\source\repos\TONAR\TONAR\Res\Windows\Hierarchy\Buildings\Departments\PCs\PCAdding.xaml;;
 

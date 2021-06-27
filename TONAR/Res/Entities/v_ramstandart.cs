@@ -18,6 +18,6 @@ namespace TONAR.Res.Entities
         public int Volume { get; set; }
         public int TickSpeed { get; set; }
         public string Type { get; set; }
-        public Nullable<int> model { get; set; }
+        public string Model { get; set; }
     }
 }

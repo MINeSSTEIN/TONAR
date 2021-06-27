@@ -36,7 +36,7 @@ namespace TONAR.Res.Pages.Hardware.RAM
                 rs.Add(new Customs.Hardware.RAM.RAMsView());
 
                 rs[i].lMfr.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].Name;
-                rs[i].lName.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].model;
+                rs[i].lName.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].Model;
                 rs[i].lSpeed.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].TickSpeed;
                 rs[i].lType.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].Type;
                 rs[i].lVolume.Content = Code.StaticVisibility.e.v_ramstandart.Local[i].Volume;

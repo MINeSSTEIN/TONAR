@@ -25,7 +25,7 @@ namespace TONAR.Res.Entities
         public int Volume { get; set; }
         public int TickSpeed { get; set; }
         public int idType { get; set; }
-        public Nullable<int> Model { get; set; }
+        public string Model { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Computers> Computers { get; set; }

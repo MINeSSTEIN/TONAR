@@ -85,3 +85,9 @@ C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\RAM\RAMTy
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\RAM\RAMTypesView.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\RAM\RAMTypes.baml
 C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hardware\RAM\RAMTypeAdding.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\RAM\RAMs.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\RAM\RAMsView.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Customs\Hardware\RAM\RAMsView.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Pages\Hardware\RAM\RAMs.baml
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\PCs\PCAdding.g.cs
+C:\Users\mines\source\repos\TONAR\TONAR\obj\Debug\Res\Windows\Hierarchy\Buildings\Departments\PCs\PCAdding.baml

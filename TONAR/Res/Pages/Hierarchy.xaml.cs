@@ -125,7 +125,7 @@ namespace TONAR.Res.Pages
 
         private void DepartmentMenuAddClick(object sender, RoutedEventArgs e)
         {
-            //Code.StaticVisibility.mi = 
+            Adding.AddPC();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) //Производители процессоров
@@ -225,7 +225,7 @@ namespace TONAR.Res.Pages
 
         private void miRAMWatch_Click(object sender, RoutedEventArgs e)
         {
-
+            Code.StaticVisibility.f.Navigate(new Hardware.RAM.RAMs());
         }
 
         private void miRAMAdd_Click(object sender, RoutedEventArgs e)

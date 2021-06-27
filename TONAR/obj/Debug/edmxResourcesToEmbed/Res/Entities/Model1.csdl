@@ -193,7 +193,7 @@
     <Property Name="Volume" Type="Int32" Nullable="false" />
     <Property Name="TickSpeed" Type="Int32" Nullable="false" />
     <Property Name="idType" Type="Int32" Nullable="false" />
-    <Property Name="Model" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_RAM" FromRole="RAM" ToRole="Computers" />
     <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_RAM_HardwareManufacturers" FromRole="RAM" ToRole="HardwareManufacturers" />
     <NavigationProperty Name="RAMTypes" Relationship="Self.FK_RAM_RAMTypes" FromRole="RAM" ToRole="RAMTypes" />
@@ -256,41 +256,6 @@
     <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_VideoAdapts" FromRole="VideoAdapts" ToRole="Computers" />
     <NavigationProperty Name="HardwareManufacturers" Relationship="Self.FK_VideoAdapts_HardwareManufacturers" FromRole="VideoAdapts" ToRole="HardwareManufacturers" />
     <NavigationProperty Name="ProcessorsVendors" Relationship="Self.FK_VideoAdapts_ProcessorsVendors" FromRole="VideoAdapts" ToRole="ProcessorsVendors" />
-  </EntityType>
-  <EntityType Name="v_DrivesStandart">
-    <Key>
-      <PropertyRef Name="Volume" />
-      <PropertyRef Name="Model" />
-      <PropertyRef Name="Type" />
-      <PropertyRef Name="Name" />
-    </Key>
-    <Property Name="Volume" Type="Int32" Nullable="false" />
-    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="V_ProcessorsStandart">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="CacheL1" />
-      <PropertyRef Name="CacheL2" />
-      <PropertyRef Name="Tickspeed" />
-      <PropertyRef Name="vName" />
-      <PropertyRef Name="Picture" />
-      <PropertyRef Name="Mark" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Socket" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="CacheL1" Type="Int32" Nullable="false" />
-    <Property Name="CacheL2" Type="Int32" Nullable="false" />
-    <Property Name="CacheL3" Type="Int32" />
-    <Property Name="Tickspeed" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="vName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Mark" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Socket" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_BuildingsAndDepartments_Buildings">
     <End Role="Buildings" Type="Self.Buildings" Multiplicity="1" />
@@ -664,8 +629,6 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="VideoAdapts" EntityType="Self.VideoAdapts" />
-    <EntitySet Name="v_DrivesStandart" EntityType="Self.v_DrivesStandart" />
-    <EntitySet Name="V_ProcessorsStandart" EntityType="Self.V_ProcessorsStandart" />
     <AssociationSet Name="FK_BuildingsAndDepartments_Buildings" Association="Self.FK_BuildingsAndDepartments_Buildings">
       <End Role="Buildings" EntitySet="Buildings" />
       <End Role="BuildingsAndDepartments" EntitySet="BuildingsAndDepartments" />
@@ -812,6 +775,9 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="v_DrivesStandart" EntityType="TONAR_PCs_DBModel.v_DrivesStandart" />
+    <EntitySet Name="V_ProcessorsStandart" EntityType="TONAR_PCs_DBModel.V_ProcessorsStandart" />
+    <EntitySet Name="v_ramstandart" EntityType="TONAR_PCs_DBModel.v_ramstandart" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -824,4 +790,52 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="v_DrivesStandart">
+    <Key>
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="Model" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_ProcessorsStandart">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CacheL1" />
+      <PropertyRef Name="CacheL2" />
+      <PropertyRef Name="Tickspeed" />
+      <PropertyRef Name="vName" />
+      <PropertyRef Name="Picture" />
+      <PropertyRef Name="Mark" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Socket" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="CacheL1" Type="Int32" Nullable="false" />
+    <Property Name="CacheL2" Type="Int32" Nullable="false" />
+    <Property Name="CacheL3" Type="Int32" />
+    <Property Name="Tickspeed" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="vName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mark" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Socket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_ramstandart">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="TickSpeed" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Volume" Type="Int32" Nullable="false" />
+    <Property Name="TickSpeed" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

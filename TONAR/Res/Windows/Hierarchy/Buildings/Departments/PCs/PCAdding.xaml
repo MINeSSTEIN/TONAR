@@ -1,0 +1,27 @@
+﻿<Window x:Class="TONAR.Res.Windows.Hierarchy.Buildings.Departments.PCs.PCAdding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TONAR.Res.Windows.Hierarchy.Buildings.Departments.PCs"
+        mc:Ignorable="d"
+        Title="Добавить ПК" Height="280" Width="315">
+    <Grid>
+        <Label Content="Материнская плата"></Label>
+        <ComboBox x:Name="cbBoard" Margin="5,30,5,5" Width="140"></ComboBox>
+        <Label Content="Процессор" Margin="0,50,0,0"></Label>
+        <ComboBox x:Name="cbCPU" Margin="5,80,5,5" Width="140"></ComboBox>
+        <Label Content="ОЗУ" Margin="150,0,0,0"></Label>
+        <ComboBox x:Name="cbRAM" Margin="150,30,5,5" Width="140"></ComboBox>
+        <Label Content="Видеокарта" Margin="150,50,0,0"></Label>
+        <ComboBox x:Name="cbVideo" Margin="150,80,5,5" Width="140"></ComboBox>
+        <Label Content="Набор накопителей" Margin="0,100,0,0"></Label>
+        <ComboBox x:Name="cbDrives" Margin="5,130,5,5" Width="140"></ComboBox>
+        <Label Content="Количество ОЗУ" Margin="0,150,0,0"></Label>
+        <TextBox x:Name="tbRAMCount" Margin="5,180,5,5" Width="140"></TextBox>
+        <Label Content="Название ПК" Margin="150,150,0,0"></Label>
+        <TextBox x:Name="tbPCName" Margin="150,180,5,5" Width="140"></TextBox>
+        <Button x:Name="btnCancel" Content="Отмена" Margin="5,210,5,5" Width="140" Click="btnCancel_Click"></Button>
+        <Button x:Name="btnAdd" Content="Добавить" Margin="150,210,5,5" Width="140" Click="btnAdd_Click"></Button>
+    </Grid>
+</Window>
