@@ -138,7 +138,10 @@ namespace TONAR.Res.Code.Functional.Processors
             pa.ShowInTaskbar = false;
             pa.ShowDialog();
 
-
+            if (pa.DialogResult == true)
+            {
+                StaticVisibility.fi.Navigate(new Pages.Hierarchy());
+            }
         }
     }
 }

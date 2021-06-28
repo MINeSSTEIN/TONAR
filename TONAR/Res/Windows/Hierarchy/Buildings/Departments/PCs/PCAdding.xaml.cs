@@ -33,7 +33,36 @@ namespace TONAR.Res.Windows.Hierarchy.Buildings.Departments.PCs
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (tbPCName.Text == "" ||
+                tbRAMCount.Text == "" ||
+                cbBoard.SelectedItem == "" ||
+                cbCPU.SelectedItem == "" ||
+                cbDrives.SelectedItem == "" ||
+                cbRAM.SelectedItem == "" ||
+                cbVideo.SelectedItem == "")
+            {
+                MessageBox.Show("Важное поле пусто");
+            }
+            else
+            {
+                Entities.Computers pc = new Entities.Computers();
+                pc.idDriveSet = Convert.ToInt32(cbDrives.SelectedItem);
+                pc.idMotherBoard = Code.StaticVisibility.e.Motherboards.Local[cbBoard.SelectedIndex].id;
+                pc.idProcessor = Code.StaticVisibility.e.Processors.Local[cbCPU.SelectedIndex].id;
+                pc.idRam = Code.StaticVisibility.e.RAM.Local[cbRAM.SelectedIndex].id;
+                pc.idVideoAdapter = Code.StaticVisibility.e.VideoAdapts.Local[cbRAM.SelectedIndex].id;
+                pc.Username = tbPCName.Text;
+                pc.RamPlatesCount = Convert.ToInt32(tbRAMCount.Text);
 
+                Code.StaticVisibility.e.Computers.Add(pc);
+                Code.StaticVisibility.e.SaveChanges();
+
+                Entities.DepartmentsAndComputers dac = new Entities.DepartmentsAndComputers();
+                dac.idComputer = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.returnpcid('{tbPCName.Text}')").SingleAsync().Result;
+                dac.idDepartment = Code.StaticVisibility.e.Database.SqlQuery<int>($"Select dbo.ReturnDepartmentID('{Code.StaticVisibility.mi2}')").SingleAsync().Result;
+
+                DialogResult = true;
+            }
         }
 
         private void LoadData()

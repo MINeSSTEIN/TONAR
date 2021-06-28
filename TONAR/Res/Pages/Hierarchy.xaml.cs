@@ -23,10 +23,23 @@ namespace TONAR.Res.Pages
 
             LoadBuildingsToList();
             LoadDepartnemtsToList();
+            LoadComputersToList();
 
+            LoadComputersToDepartments();
             LoadDepartmentsToBuildings();
 
             LoadBuildingsToHierarchy();
+        }
+
+        private void LoadComputersToList()
+        {
+            Code.StaticVisibility.e.Computers.Load();
+            for (int i = 0; i < Code.StaticVisibility.e.Computers.Local.Count; i++)
+            {
+                TreeViewItem _b = new TreeViewItem();
+                _b.Header = Code.StaticVisibility.e.Computers.Local[i].Username;
+                Computers.Add(_b);
+            }
         }
 
         /// <summary>
@@ -57,6 +70,34 @@ namespace TONAR.Res.Pages
             }
         }
 
+        private void LoadComputersToDepartments()
+        {
+            try
+            {
+                Code.StaticVisibility.e.DepartmentsAndComputers.Load();
+                for (int i = 0; i < departments.Count; i++)
+                {
+                    for (int j = 0; j < Computers.Count; j++)
+                    {
+                        if (Code.StaticVisibility.e.DepartmentsAndComputers.Local[j].idDepartment
+                            ==
+                            Code.StaticVisibility.e.Departments.Local[i].id
+
+                            &&
+
+                            Code.StaticVisibility.e.DepartmentsAndComputers.Local[j].idComputer
+                            ==
+                            Code.StaticVisibility.e.Computers.Local[j].id)
+                        {
+                            departments[i].Items.Add(Computers[j]);
+                        }
+                    }
+                }
+            }
+            catch { }
+
+        }
+
         private void LoadBuildingsToHierarchy()
         {
             for(int i = 0; i <buildings.Count; i++)
@@ -81,9 +122,9 @@ namespace TONAR.Res.Pages
 
                     cm.Items.Add(mi);
 
-
                     _b.Header = Code.StaticVisibility.e.Departments.Local[i].Name;
                     _b.ContextMenu = cm;
+                    _b.MouseRightButtonDown += (sender, MouseRightButtonDown) => { _b_MouseRightButtonDown2(sender, MouseRightButtonDown, _b.Header.ToString()); };
                     departments.Add(_b);
                 }
             }
@@ -93,6 +134,11 @@ namespace TONAR.Res.Pages
         private void _b_MouseRightButtonDown(object sender, RoutedEventArgs e, string a)
         {
             Code.StaticVisibility.mi = a;
+        }
+
+        private void _b_MouseRightButtonDown2(object sender, RoutedEventArgs e, string a)
+        {
+            Code.StaticVisibility.mi2 = a;
         }
 
         private void LoadDepartmentsToBuildings()

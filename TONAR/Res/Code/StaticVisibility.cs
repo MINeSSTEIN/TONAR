@@ -8,5 +8,7 @@ namespace TONAR.Res.Code
         public static Frame f = new Frame(); //Фрейм главного окна
         public static Frame fi = new Frame(); //Фрейм для иерархии
         public static string mi = ""; //Выбранный пункт в иерархии
+        public static string mi2 = ""; //Выбранный пункт в иерархии
+
     }
 }
