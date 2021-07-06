@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TONAR.Res.Windows.Hierarchy.Buildings"
         mc:Ignorable="d"
-                Title="Добавить модель" Height="120" Width="196"
+                Title="Добавить здание" Height="120" Width="196"
         ResizeMode="NoResize"
         ShowInTaskbar="False">
     <Grid>

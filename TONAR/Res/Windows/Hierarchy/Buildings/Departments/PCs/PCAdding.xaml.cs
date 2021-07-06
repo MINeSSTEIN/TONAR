@@ -61,6 +61,9 @@ namespace TONAR.Res.Windows.Hierarchy.Buildings.Departments.PCs
                 dac.idComputer = Code.StaticVisibility.e.Database.SqlQuery<int>($"select dbo.returnpcid('{tbPCName.Text}')").SingleAsync().Result;
                 dac.idDepartment = Code.StaticVisibility.e.Database.SqlQuery<int>($"Select dbo.ReturnDepartmentID('{Code.StaticVisibility.mi2}')").SingleAsync().Result;
 
+                Code.StaticVisibility.e.DepartmentsAndComputers.Add(dac);
+                Code.StaticVisibility.e.SaveChanges();
+
                 DialogResult = true;
             }
         }

@@ -32,8 +32,8 @@ namespace TONAR
             l.ShowDialog();
             if (l.DialogResult == false)
             {
-                return;
-
+                InitializeComponent();
+                Close();
             }
             if (l.DialogResult == true)
             {
